@@ -1,0 +1,133 @@
+/* Reseteos y tipografía (si ya existen en project-wide mantener consistencia) */
+* { box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; color: var(--text-color, #0f2747); background: var(--bg-color, #f7f9fc); }
+
+/* Contenedor principal del juego */
+.game-container {
+  max-width: 1600px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* TARJETAS / SECCIONES: estilo consistente con inicio */
+.card {
+  background: var(--card-bg, #ffffff);
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+  margin-bottom: 24px;
+}
+
+/* Teoría y caja de ejemplo */
+.theory-box {
+  background: var(--hover-bg, #f6f9ff);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 16px 0;
+  border: 1px solid var(--border-color, rgba(15,60,120,0.04));
+}
+.theory-box h3 { margin-bottom: 8px; }
+.theory-box ul { margin-left: 18px; color: var(--text-muted, #32507a); }
+.theory-box .example { margin-top: 12px; color: var(--text-muted, #5b6f8f); }
+
+/* Botones */
+.btn-primary {
+  background: var(--primary-color, #0f3c78);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--primary-color, #0f3c78);
+  border: 1px solid var(--border-color, rgba(15,60,120,0.12));
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Vista previa del documento */
+.doc-preview {
+  background: var(--card-bg, #fff);
+  border-radius: 10px;
+  border: 1px solid var(--border-color, rgba(15,60,120,0.06));
+  padding: 18px;
+  margin: 18px 0;
+  box-shadow: 0 8px 24px rgba(2,6,23,0.04);
+}
+.doc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: var(--text-color, #274063);
+  margin-bottom: 12px;
+}
+#headerText { font-size: 0.95rem; text-transform: uppercase; opacity: 0.95; }
+#pageNumber { font-size: 0.95rem; }
+
+/* Cuerpo del documento */
+.doc-body { color: var(--text-muted, #425b7c); line-height: 1.55; }
+
+/* Preguntas y selects */
+.questions { display: grid; gap: 12px; margin: 12px 0 18px; }
+.questions label { font-weight: 600; color: var(--text-color, #2b4a6b); }
+.questions select {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color, rgba(15,60,120,0.08));
+  background: var(--input-bg, #fff);
+  color: var(--text-color);
+  max-width: 280px;
+}
+
+/* Feedback */
+.feedback {
+  padding: 12px 14px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.feedback.ok {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.feedback.error {
+  background: #fee2e2;
+  color: #7f1d1d;
+}
+
+/* Separación para el botón de la pantalla final */
+#result button, #end button,
+#result .btn-play, #end .btn-play,
+#result a, #end a {
+  margin-top: 30px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .game-container { margin: 20px auto; padding: 0 16px; }
+  .card { padding: 18px; }
+  .questions select { width: 100%; max-width: none; }
+  .btn-primary { width: 100%; text-align: center; }
+  .doc-preview { padding: 15px; }
+}
+
+/* Corrección específica Modo Oscuro */
+body.dark .feedback.ok {
+  background: rgba(22, 101, 52, 0.2);
+  color: #86efac;
+}
+
+body.dark .feedback.error {
+  background: rgba(153, 27, 27, 0.2);
+  color: #fca5a5;
+}

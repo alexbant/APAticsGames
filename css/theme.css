@@ -1,0 +1,1284 @@
+/* ======= VARIABLES GLOBALES (Para asegurar consistencia) ======= */
+:root {
+  --bg-color: #f8fafc;
+  --text-color: #1e293b;
+  --text-muted: #64748b;
+  --primary-color: #0f3c78;
+  --card-bg: #ffffff;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --border-color: #e2e8f0;
+  --input-bg: #ffffff;
+  --input-border: #cbd5e1;
+  --hover-bg: #f8fafc;
+  /* Ancho para encabezados de Fase 1 (p.ej. caja "Metodología") */
+  --phase1-heading-width: 90%;
+}
+
+/* ======= DARK MODE GLOBAL ======= */
+body.dark {
+  background: #0b1220;
+  color: #e4ebf5;
+  
+  /* Redefinición de variables para modo oscuro */
+  --bg-color: #0f172a;
+  --text-color: #e2e8f0;
+  --text-muted: #94a3b8;
+  --primary-color: #2563eb;
+  --card-bg: #1e293b;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --border-color: #475569;
+  --input-bg: #334155;
+  --input-border: #475569;
+  --hover-bg: #334155;
+}
+
+/* Header */
+body.dark header {
+  background: #111827;
+  box-shadow: none;
+}
+
+/* Links */
+body.dark nav a {
+  color: #c7d2fe;
+}
+
+body.dark nav a.active {
+  color: var(--primary-color);
+}
+
+/* Cards genéricas */
+body.dark .card,
+body.dark .account-card,
+body.dark .game-card {
+  background: #111827;
+  box-shadow: var(--card-shadow);
+}
+
+/* Botones */
+body.dark .btn-primary {
+  background: var(--primary-color);
+}
+
+body.dark .btn-outline {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* Inputs */
+body.dark input,
+body.dark select {
+  background: #1f2937;
+  color: #e4ebf5;
+  border-color: #374151;
+}
+
+/* Footer */
+body.dark footer {
+  color: #94a3b8;
+}
+
+/* Logo Inversion for Dark Mode */
+body.dark .logo img {
+  filter: brightness(0) invert(1);
+}
+
+/* ======= ESTILOS BASE (HEADER GLOBAL) ======= */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-y: scroll; /* Evita saltos de layout por la barra de desplazamiento */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f7f9fc;
+  color: #0f2747;
+  transition: background .4s, color .4s;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background: #ffffff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: #64748b; /* Color gris suave por defecto */
+  font-weight: 600; /* Siempre el mismo grosor para evitar saltos */
+  transition: color 0.3s;
+}
+
+nav a.active {
+  color: #0f3c78;
+}
+
+/* Botón outline */
+.btn-outline {
+  border: 1px solid #0f3c78;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #0f3c78;
+}
+
+/* ======= FOOTER GLOBAL ======= */
+footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  margin-top: auto;
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-color);
+}
+
+footer .logo {
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+footer p {
+  color: var(--text-muted);
+  margin: 0.5rem 0;
+}
+
+footer .logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 8px rgba(15, 60, 120, 0.3));
+}
+
+.btn-outline:hover {
+  background: #0f3c78;
+  color: white;
+}
+
+/* ======= SIDEBAR GLOBAL (Módulos) ======= */
+.sidebar {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: var(--card-shadow);
+}
+
+.sidebar h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #1e3a8a;
+  font-size: 1.1rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: 8px;
+}
+
+/* Estilo para items activos */
+.sidebar li.active {
+  background: #1e3a8a;
+  color: white;
+  border-radius: 10px;
+  padding: 12px 15px;
+  font-weight: 600;
+}
+
+/* Estilo para enlaces normales */
+.sidebar li:not(.active) a {
+  display: block;
+  padding: 12px 15px;
+  border-radius: 10px;
+  color: #334155;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background .2s, color .2s;
+}
+
+.sidebar li:not(.active) a:hover {
+  background: #e5e7eb;
+  color: #1e3a8a;
+}
+
+/* Modo Oscuro para Sidebar */
+body.dark .sidebar {
+  background: #111827;
+}
+body.dark .sidebar h3 {
+  color: #e5e7eb;
+}
+body.dark .sidebar li:not(.active) a {
+  color: #cbd5f5;
+}
+body.dark .sidebar li:not(.active) a:hover {
+  background: #1f2937;
+  color: var(--primary-color);
+}
+
+/* ======= COMPONENTES GLOBALES (Juegos) ======= */
+.theory-box {
+  background: var(--hover-bg);
+  border: 1px solid var(--border-color);
+  border-left: 5px solid var(--primary-color);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.theory-box h3 {
+  text-align: center;
+  margin-top: 0;
+}
+
+.theory-box ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 15px 0;
+}
+
+.theory-box li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.theory-box li i {
+  color: var(--primary-color);
+  margin-top: 4px;
+  min-width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* FIX: Evita que el texto en listas con íconos se desborde en flexbox */
+.theory-box li > span {
+  min-width: 0; /* Permite que el texto se comprima y salte de línea */
+  flex: 1; /* Asegura que ocupe el espacio restante correctamente */
+}
+
+.feedback {
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.feedback.ok {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.feedback.error {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* Estados de botones de juego */
+.btn-outline.correct {
+  background: #166534 !important;
+  color: white !important;
+  border-color: #166534 !important;
+}
+
+.btn-outline.wrong {
+  background: #991b1b !important;
+  color: white !important;
+  border-color: #991b1b !important;
+}
+
+/* ======= ESTILOS ESPECÍFICOS JUEGOS (Jerarquía, etc) ======= */
+.doc-preview {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 40px;
+  margin: 30px 0;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+
+.doc-title {
+  font-size: 1.6rem;
+  color: #1e3a8a;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Estilos específicos para el juego de Jerarquía (Caja de Metodología) */
+#p1-heading, #p2-preview {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important; /* Ocupar todo el ancho disponible */
+  margin: 20px 0; /* Alineación estándar */
+  background: var(--card-bg, #ffffff);
+  border: 2px solid var(--border-color, #e2e8f0);
+  border-left: 6px solid var(--primary-color, #0f3c78); /* Borde lateral para estilo documento */
+  border-radius: 12px;
+  padding: 15px 30px; /* Más horizontal: menos altura, ancho completo */
+  font-family: 'Times New Roman', serif;
+  font-size: 1.5rem; /* Tamaño restaurado */
+  color: var(--text-color, #1e293b);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.game-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.game-options button {
+  width: 100%;
+  padding: 15px;
+  font-size: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.game-options button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(15, 60, 120, 0.1);
+}
+
+/* Estilo unificado para niveles bloqueados */
+.level-card.locked {
+  filter: grayscale(1);
+  opacity: 0.7;
+  background-color: #f1f5f9;
+}
+
+/* ======= DARK MODE - JUEGOS / CITAS APA ======= */
+
+body.dark {
+  background: #0b1220;
+  color: #3c517b;
+}
+
+
+/* Sidebar y progreso */
+body.dark .sidebar,
+body.dark .progress {
+  background: #111827;
+  color: #e5e7eb;
+}
+
+/* Items del sidebar */
+body.dark .sidebar li {
+  color: #cbd5f5;
+}
+
+body.dark .sidebar li.active {
+  background: #2563eb;
+  color: white;
+}
+
+/* Contenido principal */
+body.dark .content {
+  color: #e5e7eb;
+}
+
+/* Cards de niveles */
+body.dark .level-card {
+  background: #111827;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+body.dark .level-card.unlocked:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3) !important;
+  background: #1f2937 !important;
+}
+
+body.dark .level {
+  color: #93c5fd;
+}
+
+/* Botones */
+body.dark .level-card button {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+body.dark .level-card.locked {
+  opacity: 0.4;
+}
+
+/* Barra de progreso */
+body.dark .progress .bar {
+  background: #1f2937;
+}
+
+body.dark .bar-fill {
+  background: var(--primary-color);
+}
+
+/* Texto secundario */
+body.dark .subtitle {
+  color: #9ca3af;
+}
+
+/* ======= COMPONENTES GLOBALES EN MODO OSCURO ======= */
+
+/* Tarjetas Genéricas */
+body.dark .card {
+}
+
+/* Cajas de Teoría y Ejemplos */
+body.dark .theory-box,
+body.dark .soft-box {
+  background: #1f2937;
+  border-color: #374151;
+  color: #e4ebf5;
+}
+body.dark .theory-box h3 { color: var(--primary-color); }
+body.dark .theory-box ul { color: #cbd5f5; }
+body.dark .theory-box .example { color: #94a3b8; }
+
+/* Feedback (Correcto/Incorrecto) */
+body.dark .feedback {
+  background: #1f2937;
+  color: #e5e7eb;
+  border-color: #374151;
+}
+body.dark .feedback.ok {
+  background: rgba(6, 78, 59, 0.4);
+  color: #86efac;
+  border-color: #065f46;
+}
+body.dark .feedback.error {
+  background: rgba(127, 29, 29, 0.4);
+  color: #fca5a5;
+  border-color: #991b1b;
+}
+
+/* Vista previa de documentos */
+body.dark .doc-preview,
+body.dark .doc-box {
+  background: #1f2937;
+  border-color: #374151;
+  color: #e5e7eb;
+}
+body.dark .doc-title { color: var(--primary-color); }
+
+/* Jerarquía en Dark Mode */
+body.dark #p1-heading, body.dark #p2-preview {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+/* Inputs y Selects */
+body.dark input,
+body.dark select,
+body.dark textarea {
+  background: #1f2937;
+  border-color: #374151;
+  color: #e5e7eb;
+}
+
+/* Elementos Drag & Drop (Piezas y Zonas) */
+body.dark .piece {
+  background: #1f2937;
+  border: 1px solid #4b5563;
+  color: #e5e7eb;
+}
+body.dark .dropzone,
+body.dark .drop-zone {
+  background: #111827;
+  border: 2px dashed #4b5563;
+  color: #9ca3af;
+}
+
+/* Opciones y Botones de Juego */
+body.dark .option,
+body.dark .options button {
+  background: #1f2937;
+  border-color: #374151;
+  color: #e5e7eb;
+}
+body.dark .option:hover,
+body.dark .options button:hover {
+  background: #374151;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* Estados de botones en juego */
+body.dark .option.correct,
+body.dark .options button.correct,
+body.dark .btn-outline.correct {
+  background: rgba(20, 83, 45, 0.8) !important;
+  border-color: #22c55e !important;
+  color: #dcfce7 !important;
+}
+body.dark .option.wrong,
+body.dark .options button.wrong,
+body.dark .btn-outline.wrong {
+  background: rgba(127, 29, 29, 0.8) !important;
+  border-color: #ef4444 !important;
+  color: #fee2e2 !important;
+}
+
+/* ======= FIXES REFERENCIAS NIVEL 3 DARK MODE ======= */
+body.dark .choice {
+  background: #1f2937;
+  border: 1px solid #374151;
+  color: #e5e7eb;
+  transition: all 0.2s ease;
+}
+
+body.dark .choice:hover {
+  background: #374151;
+  border-color: var(--primary-color);
+}
+
+body.dark .choice.selected {
+  background: rgba(37, 99, 235, 0.25);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.4);
+}
+
+body.dark .choices {
+  border: none !important;
+  box-shadow: none !important;
+  scrollbar-width: none;
+}
+
+body.dark .choices::-webkit-scrollbar {
+  display: none;
+}
+
+/* ======= ESTILOS DE INTRODUCCIÓN (Niveles) ======= */
+.intro-text, .intro-desc {
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--text-muted, #334155);
+  margin: 10px 0;
+}
+
+.intro-mission {
+  background: var(--hover-bg, #eff6ff);
+  padding: 18px;
+  border-radius: 12px;
+  border-left: 4px solid var(--primary-color, #2563eb);
+  margin: 25px 0;
+  color: var(--text-color, #1e40af);
+  font-weight: 500;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.intro-mission i {
+  margin-top: 4px;
+}
+
+/* ======= COMPONENTES ESPECÍFICOS (Retos, Procesos, Jerarquía) ======= */
+
+/* Retos */
+body.dark .reto-card {
+  background: #111827;
+  border: none;
+  box-shadow: var(--card-shadow);
+}
+body.dark .reto-card h3 { color: #f1f5f9; }
+body.dark .reto-card p { color: #94a3b8; }
+body.dark .reto-card .icon { color: var(--primary-color); }
+body.dark .reto-card.locked { background: #111827; opacity: 0.55; }
+
+/* Procesos */
+body.dark .process-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+}
+body.dark .process-card .step {
+  background: #334155;
+  color: var(--primary-color);
+  border: 2px solid #475569;
+}
+body.dark .process-card h3 { color: #f1f5f9; }
+body.dark .process-card p { color: #94a3b8; }
+
+/* Progreso */
+body.dark .progress-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+}
+body.dark .progress-card h3 { color: #f1f5f9; }
+
+/* Jerarquía */
+body.dark .game-hud {
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid #334155;
+  color: #f1f5f9;
+}
+body.dark .phase-item {
+  background: #1e293b;
+  border: none;
+  color: #cbd5e1;
+}
+body.dark .tool-section label { color: #94a3b8; }
+body.dark .lvl-btn, 
+body.dark .btn-icon {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+}
+body.dark .lvl-btn:hover, 
+body.dark .btn-icon:hover {
+  background: #334155;
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+body.dark .tower-game {
+  background: #0f172a;
+  border: 1px solid #334155;
+}
+body.dark .source-zone, 
+body.dark .target-zone {
+  background: #1e293b;
+  border: 2px dashed #475569;
+}
+body.dark .tower-base {
+  background: #334155;
+  color: #f1f5f9;
+  border: 1px solid #475569;
+}
+
+/* Títulos y Textos Generales */
+body.dark h1, body.dark h2, body.dark h3 { color: #e4ebf5; }
+body.dark p, body.dark li { color: #cbd5f5; }
+
+/* Intro Mission Dark Mode */
+body.dark .intro-mission {
+  background: rgba(30, 58, 138, 0.2);
+  border-left-color: var(--primary-color);
+  color: #bfdbfe;
+}
+
+/* ================= RESPONSIVE GLOBAL (MÓVILES) ================= */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 15px 20px;
+    gap: 15px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  nav a {
+    font-size: 14px;
+    padding: 8px 12px;
+    background: rgba(0,0,0,0.03);
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  body.dark nav a {
+    background: rgba(255,255,255,0.05);
+  }
+
+  .game-container {
+    padding: 0 15px;
+    margin: 20px auto;
+  }
+}
+
+/* ======= MENSAJES DE PROGRESO (SIDEBAR) ======= */
+.sidebar-msg {
+  padding: 15px;
+  border-radius: 12px;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  animation: popIn 0.5s ease;
+}
+
+/* Mensaje de Éxito (Felicitación) */
+.sidebar-msg.success {
+  background: #dcfce7;
+  border: 1px solid #22c55e;
+  color: #15803d;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sidebar-msg.success .icon {
+  font-size: 2rem;
+  color: #eab308; /* Dorado */
+}
+
+.sidebar-msg.success h4 {
+  margin: 0 0 4px 0;
+  font-size: 1rem;
+  color: #14532d;
+}
+
+.sidebar-msg.success p {
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Mensaje de Información (Estrellas faltantes) */
+.sidebar-msg.info {
+  background: var(--hover-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+}
+
+.sidebar-msg.info .title {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--primary-color);
+}
+
+.sidebar-msg.info ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+/* Ajustes Modo Oscuro */
+body.dark .sidebar-msg.success {
+  background: rgba(22, 163, 74, 0.15);
+  border-color: #15803d;
+  color: #86efac;
+}
+body.dark .sidebar-msg.success h4 { color: #dcfce7; }
+
+/* Animación PopIn */
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* =========================================
+   SISTEMA DE DISEÑO GLOBAL (PROFESIONAL)
+   Desktop-First | Grid 12 Columnas | UI Kit
+   ========================================= */
+
+/* 1. CONTENEDORES ESTANDARIZADOS */
+.main-container,
+.game-container,
+.container {
+  width: 100%;
+  max-width: 1200px; /* Estándar de la industria */
+  margin: 0 auto;
+  padding: 2rem 2rem !important; /* Reducir espacio vertical excesivo */
+  box-sizing: border-box;
+  flex: 1; /* Empuja el footer */
+  min-height: 100vh; /* Restaurado para empujar el footer al fondo */
+}
+
+/* Centrado vertical para niveles de juego */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 2. GRID SYSTEM (12 Columnas) - Control Total */
+.grid-12,
+.levels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas para mayor tamaño */
+  gap: 30px; /* Espaciado de Inicio */
+  width: 100%;
+  align-items: stretch;
+}
+
+.dashboard-grid,
+.games-grid,
+.retos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas para juegos y retos */
+  gap: 20px;
+  width: 100%;
+  align-items: stretch;
+}
+
+/* =========================================
+   GAME UI SYSTEM (Unificación de Niveles)
+   ========================================= */
+
+/* 1. CONTENEDOR DE JUEGO (Tarjeta Principal) */
+.game-container .card {
+  max-width: 1200px !important; /* Ancho máximo forzado */
+  width: 95% !important; /* Ocupar ancho disponible */
+  margin: 0 auto;
+  text-align: center;
+  padding: 30px 40px !important; /* Padding equilibrado */
+  height: auto !important; /* Altura automática obligatoria */
+}
+
+.game-container .card h1 {
+  font-size: 2.2rem; /* Título más grande */
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.game-container .card h2 {
+  font-size: 1.8rem; /* Preguntas más grandes y legibles */
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.game-container .card p {
+  font-size: 1.15rem; /* Texto descriptivo aumentado */
+  line-height: 1.6;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+}
+
+/* 2. SISTEMA DE OPCIONES (Grid de respuestas unificado) */
+.options, .choices, .game-options {
+  display: grid !important; /* Forzar Grid sobre Flex */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important; /* Distribución más horizontal */
+  gap: 15px !important;
+  width: 100%;
+  margin: 30px 0;
+}
+
+.option, .choice, .game-options button, .btn-ok, .btn-error {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 16px !important; /* Bordes más redondeados */
+  padding: 15px 25px !important; /* Menos altura, aspecto más apaisado */
+  font-size: 1.1rem !important; /* Texto de opción más grande */
+  text-align: center !important; /* Centrado para mejor balance */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text-color);
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  margin: 0 !important;
+  min-height: auto !important; /* Altura automática según contenido */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.option:hover, .choice:hover, .game-options button:hover {
+  border-color: var(--primary-color);
+  background: var(--hover-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+.option.selected, .choice.selected {
+  border-color: var(--primary-color);
+  background: rgba(37, 99, 235, 0.05);
+}
+
+/* Estados de Correcto/Incorrecto Unificados */
+.option.correct, .choice.correct, .game-options button.correct {
+  border-color: #22c55e !important;
+  background: #f0fdf4 !important;
+  color: #15803d !important;
+}
+
+.option.wrong, .choice.wrong, .game-options button.wrong {
+  border-color: #ef4444 !important;
+  background: #fef2f2 !important;
+  color: #991b1b !important;
+}
+
+/* 3. DRAG & DROP ZONES (Unificado) */
+.dropzones, .drop-zones, .pieces, .reference-parts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.dropzone, .zone, .drop-zone {
+  min-width: 120px;
+  min-height: 50px; /* Altura más natural */
+  border: 2px dashed var(--border-color);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--hover-bg);
+  transition: all 0.2s;
+  padding: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.dropzone.drag-over, .zone.drag-over {
+  border-color: var(--primary-color);
+  background: rgba(37, 99, 235, 0.1);
+}
+
+.piece, .part {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 10px 16px; /* Piezas más pequeñas */
+  border-radius: 8px;
+  cursor: grab;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  font-size: 0.95rem;
+  user-select: none;
+  color: var(--text-color);
+}
+
+.piece:active, .part:active {
+  cursor: grabbing;
+  transform: scale(1.05);
+}
+
+/* 4. DOCUMENT PREVIEWS (Estilo Hoja de Papel) */
+.reference, .doc-preview, .doc-box {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  padding: 20px;
+  border-radius: 4px; /* Bordes menos redondeados para parecer papel */
+  font-family: 'Times New Roman', serif; /* Fuente APA */
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: left;
+  margin: 15px auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 100%;
+  color: #000; /* Texto negro siempre en papel */
+}
+
+/* Dark Mode para Docs */
+body.dark .reference, 
+body.dark .doc-preview, 
+body.dark .doc-box {
+  background: #1e293b;
+  color: #e2e8f0;
+  border-color: #334155;
+}
+
+/* 3. UTILIDADES DE COLUMNAS */
+/* Ya no son necesarias con auto-fit, pero las dejamos por compatibilidad */
+.col-12 { grid-column: 1 / -1; }
+.col-8  { grid-column: span 2; }
+.col-6  { grid-column: span 1; }
+.col-4  { grid-column: span 1; }
+.col-3  { grid-column: span 1; }
+
+/* 4. SISTEMA DE TARJETAS UNIFICADO */
+.card,
+.card-base,
+.game-card,
+.level-card,
+.reto-card,
+.account-card,
+.process-card,
+.progress-card {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  padding: 30px; /* Padding de Inicio */
+  box-shadow: var(--card-shadow);
+  border: 1px solid transparent; /* Borde transparente por defecto para evitar saltos */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  text-align: center; /* Centrado como en Inicio */
+}
+
+.card:hover,
+.card-base:hover,
+.game-card:hover,
+.level-card:hover,
+.reto-card:hover,
+.account-card:hover,
+.process-card:hover,
+.progress-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.1); /* Sombra de Inicio */
+  border-color: var(--primary-color);
+}
+
+/* Ajuste para botones en tarjetas de juego (Consistencia) */
+.game-card button {
+  width: auto;
+  max-width: none;
+  align-self: center; /* Centra el botón horizontalmente */
+  margin-top: 15px;
+}
+
+/* 5. SISTEMA DE BOTONES UNIFICADO */
+.btn,
+.btn-primary,
+.btn-secondary,
+button.btn-primary, /* Para botones de <button> */
+a.btn-primary,      /* Para enlaces <a> con estilo de botón */
+.btn-play {         /* Clase específica si se necesita */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px; /* Padding unificado */
+  border-radius: 10px; /* Radio de Inicio */
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  text-decoration: none;
+  gap: 8px;
+  text-align: center;
+}
+
+.btn-primary,
+button.btn-primary,
+a.btn-primary {
+  background-color: var(--primary-color);
+  color: #ffffff !important;
+}
+
+.btn-primary:hover,
+button.btn-primary:hover,
+a.btn-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.btn-secondary,
+button.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-secondary:hover,
+button.btn-secondary:hover {
+  background: var(--hover-bg);
+  transform: translateY(-1px);
+}
+
+/* 6. ENCABEZADOS DE SECCIÓN */
+.section-header {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.section-header h1 { 
+  font-size: 2.5rem; 
+  color: var(--primary-color); 
+  margin-bottom: 1rem; 
+  font-weight: 700; 
+}
+.section-header p { 
+  font-size: 1.1rem; 
+  color: var(--text-muted); 
+  max-width: 700px; 
+  margin: 0 auto; 
+  line-height: 1.6; 
+}
+
+/* 7. LAYOUT CON SIDEBARS (Hubs: Citas, Referencias, Formato, Progreso) */
+.layout {
+  display: grid;
+  grid-template-columns: 240px 1fr 280px; /* Ajuste para dar más espacio al centro */
+  gap: 2rem; /* Reducir gap general para que el centro crezca */
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem; /* Menos padding lateral en el contenedor principal */
+  box-sizing: border-box;
+  align-items: start;
+  min-height: 100vh; /* Fuerza que el contenido ocupe al menos toda la pantalla */
+}
+
+/* Sidebar Styles */
+.sidebar, .progress {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  padding: 2.2rem; /* Interior más amplio */
+  box-shadow: var(--card-shadow);
+  border: 1px solid transparent;
+}
+
+/* 7. RESPONSIVE CONTROLADO */
+
+/* Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .col-4 { grid-column: span 6; }  /* De 3 a 2 columnas */
+  .col-3 { grid-column: span 6; }  /* De 4 a 2 columnas */
+  
+  /* Ajuste para grids de 4 columnas en tablet */
+  .grid-12, 
+  .dashboard-grid,
+  .games-grid,
+  .retos-grid,
+  .levels-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  /* Layout apilado para evitar columnas estrechas */
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* Reordenamiento visual: Contenido primero */
+  .layout .content { order: 1; }
+  .layout .sidebar { order: 2; }
+  .layout .progress { order: 3; }
+
+  .sidebar, .progress {
+    width: 100%;
+  }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .grid-12, 
+  .dashboard-grid,
+  .games-grid,
+  .retos-grid,
+  .levels-grid { 
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+  }
+  
+  .main-container, 
+  .game-container, 
+  .container { 
+    padding: 1.5rem 1rem; 
+  }
+  
+  .section-header h1 { font-size: 2rem; }
+
+  .layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1.5rem 1rem;
+  }
+
+  /* Asegurar orden en móvil */
+  .layout .content { order: 1; }
+  .layout .sidebar { order: 2; }
+  .layout .progress { order: 3; }
+
+  /* Corrección visual para tarjetas en móvil */
+  .game-card, .reto-card {
+    min-height: 200px; /* Evita que se vean como tiras delgadas */
+    justify-content: space-between;
+  }
+}
+
+/* 8. UTILIDADES GLOBALES */
+.hidden {
+  display: none !important;
+}
+
+/* =========================================
+   INTRODUCCIÓN COMPACTA (NUEVO ESTÁNDAR)
+   ========================================= */
+.intro-compact {
+  text-align: left;
+  margin: 1rem auto 1.5rem;
+  max-width: 700px;
+}
+
+.intro-compact .intro-description {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.intro-compact ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.intro-compact li {
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: 0.3rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.intro-compact li::before {
+  content: "•";
+  color: var(--primary-color);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+  line-height: 1rem;
+}
+
+.intro-compact .mission {
+  background: var(--hover-bg);
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-color);
+  font-weight: 600;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+
+.intro-compact .mission i {
+  color: var(--primary-color);
+}

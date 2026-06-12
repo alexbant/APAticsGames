@@ -1,0 +1,391 @@
+/* jerarquia.css - Estilo unificado con el resto de niveles */
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+.hidden {
+  display: none !important;
+}
+
+/* --- HUD (Puntaje y Progreso) --- */
+.game-hud {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  background: var(--card-bg);
+  padding: 12px 20px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  box-shadow: var(--card-shadow);
+}
+
+.score-display {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--hover-bg);
+  padding: 8px 18px;
+  border-radius: 30px;
+  border: 1px solid var(--border-color);
+}
+
+.score-display i {
+  color: #f59e0b; /* Gold */
+}
+
+.progress-bar {
+  flex-grow: 1;
+  height: 12px;
+  background: var(--hover-bg);
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+#overall-progress-fill {
+  height: 100%;
+  background: var(--primary-color);
+  width: 0%;
+  transition: width 0.5s ease;
+  border-radius: 6px;
+}
+
+.card {
+  background: var(--card-bg, #ffffff);
+  padding: 32px;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+  margin-bottom: 30px;
+  animation: fadeIn 0.4s ease;
+}
+
+.level {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary-color, #1e3a8a);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* --- PREVIEW FASES (INTRO) --- */
+.phases-preview {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.phase-item {
+  background: var(--hover-bg, #f1f5f9);
+  padding: 15px 20px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  color: var(--text-muted, #64748b);
+  border: none;
+}
+
+.phase-item i {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+/* --- ÁREA DE HERRAMIENTAS (Parecido a Theory Box) --- */
+.tools-wrapper {
+  background: var(--hover-bg, #f1f5f9);
+  padding: 24px;
+  border-radius: 16px;
+  margin: 25px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border: 1px solid var(--border-color, #e2e8f0);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tool-section label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text-muted, #64748b);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- BOTONES DE NIVEL (Estilo Opciones Nivel 1) --- */
+.level-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.level-buttons button {
+  min-width: 55px;
+  height: 55px;
+  border-radius: 14px;
+  border: 2px solid var(--border-color, #c7d2fe);
+  background: var(--card-bg, #ffffff);
+  color: var(--text-color, #1e293b);
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.level-buttons button:hover {
+  border-color: var(--primary-color, #1e3a8a);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+}
+
+.level-buttons button.active {
+  background: var(--primary-color, #1e3a8a);
+  color: white;
+  border-color: var(--primary-color, #1e3a8a);
+}
+
+/* --- BOTONES DE FORMATO (Iconos) --- */
+.format-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  border: 2px solid var(--border-color, #c7d2fe);
+  background: var(--card-bg, #ffffff);
+  color: var(--text-color, #555);
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon:hover {
+  border-color: var(--primary-color, #1e3a8a);
+  color: var(--primary-color, #1e3a8a);
+  background: var(--hover-bg, #f8fafc);
+  transform: translateY(-2px);
+}
+
+.btn-icon.active {
+  background: var(--primary-color, #1e3a8a);
+  color: #fff;
+  border-color: var(--primary-color, #1e3a8a);
+}
+
+/* --- PREVISUALIZACIÓN DEL DOCUMENTO --- */
+.doc-preview {
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 16px;
+  padding: 40px;
+  margin: 30px 0;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.03);
+}
+
+.heading-preview {
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.editable {
+  width: 100%;
+  text-align: center;
+  font-size: 1.3rem;
+  outline: none;
+  color: var(--text-color);
+}
+
+/* Ajuste: que la caja de encabezado (p.ej. "Metodología") tenga
+   el mismo ancho máximo que los controles debajo (nivel APA / Formato)
+   para todos los desafíos de la Fase 1. Centrado y responsivo. */
+#p1-heading, #p2-preview, .heading-preview, .tools-wrapper, .btn-primary, .doc-preview {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important; /* Forzar ancho completo para igualar a controles */
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  display: block !important;
+}
+
+#p1-heading, #p2-preview, .heading-preview, .doc-preview {
+  padding: 15px 20px !important;
+}
+
+.format-buttons.centered {
+  margin-top: 20px;
+}
+
+/* --- FASE 3: TORRE (Estilo Drag & Drop Nivel 3) --- */
+.tower-game {
+  display: flex;
+  gap: 40px; /* Más separación entre las zonas */
+  justify-content: center;
+  margin: 40px auto; /* Más separación vertical y centrado */
+  width: 90% !important; /* Reducir ancho para despegarse de los bordes */
+  flex-wrap: wrap;
+}
+
+.source-zone, .target-zone {
+  background: var(--hover-bg, #f8fafc);
+  border: 2px dashed var(--border-color, #94a3b8);
+  border-radius: 16px;
+  padding: 20px;
+  min-width: 260px;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: background 0.2s;
+}
+
+.target-zone {
+  border-color: var(--primary-color, #1e3a8a);
+  justify-content: flex-start; /* Construir de arriba hacia abajo */
+}
+
+.tower-base {
+  background: var(--primary-color, #1e3a8a);
+  color: white;
+  padding: 14px;
+  text-align: center;
+  border-radius: 10px 10px 0 0; /* Ajustado para estar arriba */
+  margin-bottom: 12px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.tower-block {
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--border-color, #cbd5e1);
+  padding: 18px 20px; /* Aumentar área táctil para mejor agarre */
+  border-radius: 10px;
+  cursor: grab;
+  text-align: center;
+  font-weight: 600; /* Texto más visible y grueso */
+  font-size: 1.1rem; /* Texto más grande */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+  touch-action: none;
+  user-select: none; /* Evita que el texto se seleccione al arrastrar */
+}
+
+.tower-block.dragging {
+  opacity: 0.4;
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.tower-block:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.tower-block:active {
+  cursor: grabbing;
+}
+
+/* --- FEEDBACK & BOTONES --- */
+.feedback {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 12px;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border: 1px solid transparent;
+}
+
+.feedback i {
+  font-size: 1.2rem;
+  margin-top: 2px;
+}
+
+.feedback.success {
+  background: #f0fdf4;
+  color: #15803d;
+  border-color: #bbf7d0;
+}
+
+.feedback.error {
+  background: #fff1f2;
+  color: #be123c;
+  border-color: #fecdd3;
+}
+
+.btn-primary {
+  margin-top: 25px;
+  text-decoration: none;
+  padding: 14px 32px;
+  background: var(--primary-color, #1e3a8a);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, filter 0.2s;
+  font-size: 1rem;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 600px) {
+  .tower-game {
+    flex-direction: column;
+  }
+  .source-zone, .target-zone {
+    width: 100%;
+    min-height: 200px;
+  }
+}
+
+/* --- MODO OSCURO --- */
+body.dark .tools-wrapper { background: #1f2937; border-color: #374151; }
+body.dark .level-buttons button, body.dark .btn-icon { background: #111827; border-color: #374151; color: #e5e7eb; }
+body.dark .level-buttons button:hover, body.dark .btn-icon:hover { border-color: #60a5fa; color: #60a5fa; }
+body.dark .level-buttons button.active, body.dark .btn-icon.active { background: #2563eb; border-color: #2563eb; color: white; }
+body.dark .doc-preview { background: #111827; border-color: #374151; }
+body.dark .source-zone, body.dark .target-zone { background: #111827; border-color: #4b5563; }
+body.dark .tower-block { background: #1f2937; border-color: #374151; color: #e5e7eb; }
+body.dark .feedback.success { background: #14532d; color: #bbf7d0; border-color: #166534; }
+body.dark .feedback.error { background: #881337; color: #fecdd3; border-color: #9f1239; }

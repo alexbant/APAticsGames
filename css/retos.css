@@ -1,0 +1,157 @@
+/* =========================
+   AJUSTE GLOBAL
+========================= */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* =========================
+   EVITAR QUE EL HEADER TAPE CONTENIDO
+========================= */
+main.container {
+  padding-top: 120px; /* espacio para header fijo */
+}
+
+/* =========================
+   HERO MINI
+========================= */
+.hero-mini {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.hero-mini h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.hero-mini p {
+  color: var(--text-muted, #6b7280);
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* =========================
+   GRID
+========================= */
+.retos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas fijas como en Juegos */
+  gap: 20px; /* Espaciado equilibrado para que sean grandes pero separadas */
+}
+
+/* =========================
+   TARJETAS
+========================= */
+.reto-card {
+  background: var(--card-bg, #ffffff);
+  border-radius: 1rem; /* Igual que Juegos */
+  padding: 1.2rem;     /* Menos padding para ganar espacio interno */
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* Estilo Cuadrado */
+  aspect-ratio: auto; /* Eliminar forma cuadrada forzada */
+  min-height: 0; /* Eliminar altura forzada, igual que en Juegos */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuir espacio para que quepa todo */
+  align-items: center;     /* Centrado horizontal */
+  text-align: center;      /* Texto centrado */
+}
+
+.reto-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.reto-card .icon {
+  font-size: 2.5rem; /* Icono un poco más pequeño para dar espacio al texto */
+  margin-bottom: 0.5rem;
+  color: var(--primary-color, #1e3a8a);
+}
+
+.reto-card h3 {
+  font-size: 1.2rem; /* Título ajustado */
+  margin-bottom: 0.25rem;
+  color: var(--primary-color, #1e3a8a);
+}
+
+.reto-card p {
+  font-size: 0.85rem; /* Texto ajustado para evitar recorte */
+  color: var(--text-muted, #5b6f8f);
+  margin-bottom: 0;
+  flex-grow: 1; /* Ocupa el espacio disponible */
+  display: flex;
+  align-items: center; /* Centra el texto verticalmente en su espacio */
+  line-height: 1.3;
+}
+
+/* =========================
+   BOTONES (ARREGLADOS)
+========================= */
+.reto-card button {
+  padding: 10px; /* Botón más compacto */
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  background: var(--primary-color, #1e3a8a);
+  color: #ffffff;
+  transition: transform 0.25s ease, background 0.25s ease;
+  width: 100%; /* Botón ancho */
+  margin-top: 0.5rem;
+}
+
+.reto-card button:hover {
+  filter: brightness(1.1);
+  transform: none; /* Quitar salto extra del botón, ya salta la tarjeta */
+}
+
+/* =========================
+   RETO BLOQUEADO
+========================= */
+.reto-card.locked {
+  opacity: 0.55;
+  filter: grayscale(0.7);
+}
+
+.reto-card.locked button, .reto-card.locked .icon {
+  background: #b5c3d6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.reto-card.locked button:hover {
+  transform: none;
+}
+
+.reto-card.locked .icon {
+  background: transparent;
+  color: #9ca3af;
+}
+
+@media (max-width: 900px) {
+  .retos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+/* ================= MOBILE OPTIMIZATIONS (RESPONSIVE) ================= */
+@media (max-width: 600px) {
+  main.container {
+    padding-top: 11rem; /* Más espacio superior porque el header es más alto */
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero-mini h1 {
+    font-size: 2rem;
+  }
+}

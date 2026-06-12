@@ -1,0 +1,51 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-color, #f8fafc);
+  color: var(--text-color, #1e293b);
+  margin: 0;
+}
+
+
+h1, h2 {
+  color: var(--primary-color, #1e3a8a);
+  margin-top: 0;
+}
+
+
+.hidden {
+  display: none;
+}
+
+/* ---------------------- */
+/* BOTONES */
+/* ---------------------- */
+
+
+#progress {
+  color: var(--text-muted, #64748b);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+body.dark .feedback.ok,
+body.dark .option.correct {
+  background: rgba(22, 101, 52, 0.2);
+  color: #86efac;
+  border-color: #22c55e;
+}
+
+body.dark .feedback.error,
+body.dark .option.wrong {
+  background: rgba(153, 27, 27, 0.2);
+  color: #fca5a5;
+  border-color: #ef4444;
+}
+
+/* Separación para el botón de la pantalla final */
+#result button,
+#result .btn-play,
+#result a {
+  margin-top: 30px;
+  display: inline-block;
+  text-decoration: none;
+}

@@ -1,0 +1,281 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-color, #f8fafc);
+  color: var(--text-color, #1e293b);
+  margin: 0;
+}
+
+.game-container {
+  max-width: 1600px;
+  margin: 40px auto;
+  padding: 0 20px;
+  line-height: 1.6;
+}
+
+.card {
+  background: var(--card-bg, #ffffff);
+  padding: 32px;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+  margin-bottom: 30px;
+}
+
+h1, h2 {
+  color: var(--primary-color, #1e3a8a);
+  margin-top: 0;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+p {
+  color: var(--text-muted, #64748b);
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+/* --- INTRODUCCIÓN (Lista con iconos) --- */
+#intro ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+#intro li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  color: var(--text-muted, #64748b);
+}
+
+#intro li::before {
+  content: ""; /* Icono Check */
+  font-family: "Font Awesome 6 Free", "FontAwesome";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  top: 3px;
+  color: var(--primary-color, #1e3a8a);
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- REDISEÑO VISUAL --- */
+
+/* Contenedor de piezas (Banco de opciones) */
+.reference-parts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  padding: 20px;
+  background: var(--hover-bg, #f8fafc);
+  border-radius: 20px;
+  border: 1px solid var(--border-color, #e2e8f0);
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+}
+
+/* Piezas arrastrables */
+.part {
+  background: #ffffff;
+  color: var(--text-color, #1e293b);
+  padding: 12px 24px;
+  border-radius: 50px; /* Forma de píldora */
+  cursor: grab;
+  font-weight: 600;
+  border: 1px solid var(--border-color, #cbd5e1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.95rem;
+  user-select: none;
+  touch-action: none;
+}
+
+.part:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+  border-color: var(--primary-color, #1e3a8a);
+  color: var(--primary-color, #1e3a8a);
+}
+
+.part:active {
+  cursor: grabbing;
+  transform: scale(0.95);
+}
+
+.part.selected {
+  background: var(--primary-color, #1e3a8a);
+  color: white;
+  border-color: var(--primary-color, #1e3a8a);
+  box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+}
+
+/* Contenedor de zonas */
+.drop-zones {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px; /* Más espacio */
+  margin: 30px 0;
+}
+
+/* Zona individual */
+.zone {
+  min-height: 60px;
+  border: 2px dashed var(--border-color, #cbd5f5);
+  border-radius: 18px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 500;
+  background: var(--bg-color, #f8fafc);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.zone:empty::before {
+  content: "Soltar aquí";
+  color: var(--text-muted, #94a3b8);
+  font-size: 0.9rem;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.zone:hover {
+  border-color: var(--primary-color, #1e3a8a);
+  background: rgba(37, 99, 235, 0.05);
+  transform: scale(1.02);
+}
+
+/* Estilo de la pieza cuando está dentro de una zona */
+.zone .part {
+  margin: 0;
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: none;
+  border: 1px solid transparent;
+  background: #e0e7ff;
+  color: #1e3a8a;
+}
+
+.feedback {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.feedback.ok {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.feedback.error {
+  background: #fee2e2;
+  color: #7f1d1d;
+}
+
+button,
+.btn-primary,
+.btn-play {
+  display: inline-block;
+  margin-top: 20px;
+  background: var(--primary-color, #1e3a8a);
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 14px 28px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 16px;
+}
+
+button:hover,
+.btn-primary:hover,
+.btn-play:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(30, 58, 138, 0.2);
+}
+
+button:active,
+.btn-primary:active,
+.btn-play:active {
+  transform: translateY(0);
+}
+
+#progress {
+  color: var(--text-muted, #64748b);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  display: block;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .drop-zones {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- MODO OSCURO --- */
+
+body.dark .reference-parts {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+body.dark .part {
+  background: #111827;
+  border-color: #374151;
+  color: #e5e7eb;
+}
+
+body.dark .part:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background: #1f2937;
+}
+
+body.dark .part.selected {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+body.dark .zone .part {
+  background: #374151;
+  color: #e5e7eb;
+  border: 1px solid #4b5563;
+}
+
+/* Corrección específica Modo Oscuro */
+body.dark .feedback.ok {
+  background: rgba(22, 101, 52, 0.2);
+  color: #86efac;
+}
+
+body.dark .feedback.error {
+  background: rgba(153, 27, 27, 0.2);
+  color: #fca5a5;
+}
+
+/* Separación para el botón de la pantalla final */
+#result button,
+#result .btn-play,
+#result a {
+  margin-top: 30px;
+  display: inline-block;
+  text-decoration: none;
+}

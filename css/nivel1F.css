@@ -1,0 +1,49 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-color, #f8fafc);
+  color: var(--text-color, #1e293b);
+  margin: 0;
+}
+
+
+h1, h2 {
+  color: var(--primary-color, #1e3a8a);
+}
+
+.instruction {
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+
+/* Corrección específica Modo Oscuro */
+body.dark .feedback.ok {
+  background: rgba(22, 101, 52, 0.2);
+  color: #86efac;
+}
+
+body.dark .feedback.error {
+  background: rgba(153, 27, 27, 0.2);
+  color: #fca5a5;
+}
+
+body.dark .option.correct {
+  background: rgba(22, 101, 52, 0.5) !important;
+  color: #86efac !important;
+  border-color: #22c55e !important;
+}
+
+body.dark .option.wrong {
+  background: rgba(153, 27, 27, 0.5) !important;
+  color: #fca5a5 !important;
+  border-color: #ef4444 !important;
+}
+
+/* Separación para el botón de la pantalla final */
+#result button,
+#result .btn-play,
+#result a {
+  margin-top: 30px;
+  display: inline-block;
+  text-decoration: none;
+}

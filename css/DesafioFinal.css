@@ -1,0 +1,213 @@
+.card {
+  background: var(--card-bg, #ffffff);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+
+.level {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--primary-color, #1e3a8a);
+  display: block;
+  margin-bottom: 15px;
+}
+
+/* REQUISITOS */
+.requirements {
+  text-align: left;
+  background: var(--hover-bg, #f8fafc);
+  padding: 20px;
+  border-radius: 12px;
+  margin: 25px 0;
+  border: 1px solid var(--border-color, #e2e8f0);
+}
+
+.requirements ul {
+  list-style: none;
+  padding: 0;
+}
+
+.requirements li {
+  margin-bottom: 10px;
+  color: var(--text-muted, #64748b);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.requirements li.done {
+  color: #166534;
+  font-weight: 600;
+}
+
+/* QUIZ HEADER */
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+  padding-bottom: 15px;
+}
+
+.badge {
+  background: var(--hover-bg, #e0e7ff);
+  color: var(--primary-color, #1e3a8a);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* PREGUNTAS */
+h2#questionText {
+  font-size: 1.5rem;
+  color: var(--text-color, #0f2747);
+  margin-bottom: 30px;
+  line-height: 1.4;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.option-btn {
+  background: var(--card-bg, white);
+  border: 2px solid var(--border-color, #e2e8f0);
+  padding: 18px;
+  border-radius: 14px;
+  font-size: 1rem;
+  color: var(--text-muted, #334155);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.option-btn:hover {
+  border-color: var(--primary-color, #1e3a8a);
+  background: var(--hover-bg, #f8fafc);
+  transform: translateY(-2px);
+}
+
+.option-btn.correct {
+  background: #dcfce7 !important;
+  border-color: #16a34a !important;
+  color: #14532d !important;
+}
+
+.option-btn.wrong {
+  background: #fee2e2 !important;
+  border-color: #dc2626 !important;
+  color: #7f1d1d !important;
+}
+
+/* RESULTADOS */
+.score-circle {
+  width: 140px;
+  height: 140px;
+  background: var(--primary-color, #1e3a8a);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+  font-size: 3rem;
+  font-weight: 700;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+.score-circle small { font-size: 1rem; font-weight: 400; opacity: 0.9; }
+
+/* BOTONES */
+.btn-primary {
+  display: inline-block;
+  padding: 14px 30px;
+  background: var(--primary-color, #1e3a8a);
+  color: #ffffff;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+  text-decoration: none;
+  font-size: 1rem;
+  text-align: center;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  color: #ffffff;
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: 12px 24px;
+  background: transparent;
+  color: var(--primary-color, #1e3a8a);
+  border: 2px solid var(--primary-color, #1e3a8a);
+  border-radius: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 1rem;
+  text-align: center;
+}
+.btn-secondary:hover {
+  background: var(--hover-bg, #eff6ff);
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.hidden { display: none; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Corrección específica Modo Oscuro */
+body.dark .requirements {
+  background: #1f2937;
+  border-color: #374151;
+}
+body.dark .requirements li {
+  color: #cbd5f5;
+}
+
+/* Feedback en Modo Oscuro */
+body.dark .feedback.ok {
+  background: rgba(20, 83, 45, 0.6) !important;
+  color: #dcfce7 !important;
+  border-left-color: #22c55e !important;
+}
+body.dark .feedback.error {
+  background: rgba(127, 29, 29, 0.6) !important;
+  color: #fee2e2 !important;
+  border-left-color: #ef4444 !important;
+}
+
+/* Botones de opción en Modo Oscuro */
+body.dark .option-btn.correct {
+  background: rgba(20, 83, 45, 0.8) !important;
+  border-color: #22c55e !important;
+  color: #dcfce7 !important;
+}
+body.dark .option-btn.wrong {
+  background: rgba(127, 29, 29, 0.8) !important;
+  border-color: #ef4444 !important;
+  color: #fee2e2 !important;
+}

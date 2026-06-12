@@ -1,0 +1,132 @@
+/* Grid de 3 columnas para el proceso */
+.dashboard-grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: stretch; /* Asegura que todas las tarjetas tengan la misma altura */
+}
+
+/* Estilo de las tarjetas de proceso */
+.card-base {
+  display: grid !important; /* Forzar grid interno para layout horizontal */
+  grid-template-columns: auto 1fr; /* Columna icono | Columna contenido */
+  grid-template-rows: auto 1fr auto; /* Título | Texto | Estado */
+  gap: 0 20px; /* Espacio entre icono y texto */
+  padding: 1.5rem;
+  text-align: left; /* Alinear texto a la izquierda para mejor lectura */
+  align-items: start;
+  height: 100%; /* Llenar la celda del grid principal */
+  min-height: 140px; /* Altura más natural */
+}
+
+/* Círculo del número de paso */
+.step {
+  grid-row: 1 / -1; /* El icono ocupa toda la altura vertical a la izquierda */
+  align-self: center; /* Centrado verticalmente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  background: transparent; /* Sin fondo, estilo limpio como en Juegos */
+  color: var(--primary-color);
+  font-size: 3.5rem; /* Icono mucho más grande */
+  margin-bottom: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.card-base h3 {
+  grid-column: 2; /* Columna derecha */
+  text-align: left;
+  font-size: 1.2rem;
+  margin: 0 0 5px 0;
+}
+
+.card-base p {
+  grid-column: 2; /* Columna derecha */
+  text-align: left;
+  margin: 0 0 10px 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Estado (Completado, Activo, Bloqueado) */
+.status {
+  grid-column: 2; /* Columna derecha */
+  justify-self: start; /* Alinear al inicio del texto */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  width: auto; /* Ancho automático */
+  margin-top: auto;
+}
+
+.status.done {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status.active {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.status.locked {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+/* Tarjeta final destacada */
+.card-base.final {
+  grid-column: span 2; /* Ocupa 2 columnas si es el último impar en tablet */
+}
+
+/* Modo Oscuro */
+body.dark .card-base {
+  background: #111827; /* Fondo oscuro exacto de Juegos/Retos */
+  border: 1px solid #1f2937;
+}
+
+body.dark .card-base h3 {
+  color: #f1f5f9; /* Texto brillante */
+}
+
+body.dark .card-base p {
+  color: #94a3b8; /* Texto secundario */
+}
+
+body.dark .status.done {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+}
+body.dark .status.active {
+  background: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+}
+body.dark .status.locked {
+  background: #334155;
+  color: #94a3b8;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .card-base.final {
+    grid-column: 1 / -1; /* Ocupa todo el ancho */
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  .card-base.final {
+    grid-column: auto;
+  }
+}

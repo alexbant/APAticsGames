@@ -1,0 +1,152 @@
+/* ================= JUEGOS ================= */
+.games-section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.games-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--text-muted, #425b7c);
+  margin-bottom: 3rem;
+}
+
+/* Reducir el espacio (gap) para que las tarjetas se expandan más */
+.main-container .dashboard-grid {
+  gap: 20px; /* Más espacio para separar las tarjetas */
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.game-icon {
+  font-size: 3rem; /* Ajustado para equilibrio visual */
+  margin-bottom: 0.5rem;
+  color: var(--primary-color, #1e3a8a);
+}
+
+/* Ajustes específicos para las tarjetas de juegos */
+/* Usamos .dashboard-grid .card-base para asegurar que el tamaño se aplique sobre el theme.css */
+.dashboard-grid .card-base,
+.dashboard-grid .game-card {
+  padding: 1.5rem; /* Padding más reducido */
+  aspect-ratio: auto; /* Eliminar forma cuadrada forzada */
+  min-height: 0; /* Eliminar altura forzada */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrar contenido verticalmente */
+  align-items: center;
+}
+
+.card-base h3 {
+  margin-bottom: 0.25rem;
+  font-size: 1.4rem;
+  color: var(--primary-color, #1e3a8a);
+}
+
+.card-base p {
+  font-size: 0.9rem;
+  color: var(--text-muted, #5b6f8f);
+  margin-bottom: 0.5rem;
+  flex-grow: 0;
+  line-height: 1.3;
+}
+
+.card-base button,
+.game-card button,
+#finalChallenge button,
+#finalChallenge a {
+  width: auto !important;
+  max-width: none !important;
+  padding: 12px 30px !important;
+  border: none !important;
+  border-radius: 10px !important;
+  color: white !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  cursor: pointer;
+  transition: all 0.3s ease !important;
+  margin: 15px auto 0 auto !important;
+  display: inline-flex !important;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none !important;
+  background: var(--primary-color) !important; /* Usar background para sobrescribir degradados */
+  box-shadow: none;
+}
+
+.card-base button:hover,
+.game-card button:hover,
+#finalChallenge button:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
+  filter: brightness(1.1) !important;
+  background: var(--primary-color) !important;
+}
+
+/* Resetear enlaces que envuelven botones para evitar doble caja */
+.card-base a,
+.game-card a {
+  text-decoration: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  display: contents !important; /* Hace que el enlace sea invisible estructuralmente */
+}
+
+/* BLOQUEADO */
+.card-base.locked {
+  opacity: 0.7;
+}
+
+.card-base.locked button {
+  background: #94a3b8 !important;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ================= MODO OSCURO ================= */
+body.dark .card-base {
+  background: #111827; /* Fondo más oscuro, igual que en Retos */
+}
+
+body.dark .card-base h3 {
+  color: #f1f5f9; /* Texto más brillante */
+}
+
+body.dark .card-base p {
+  color: #94a3b8; /* Texto secundario estándar de modo oscuro */
+}
+
+body.dark .game-icon {
+  color: var(--primary-color); /* Usa el azul vibrante del modo oscuro */
+}
+
+body.dark .card-base.locked {
+  background: #111827; /* Mantiene el fondo oscuro */
+}
+
+.card-base.locked button {
+  background: #334155 !important; /* Botón bloqueado más oscuro y consistente */
+}
+@media (max-width: 900px) {
+  header {
+    padding: 1rem;
+  }
+
+  .games-section {
+    padding: 3rem 1.5rem;
+  }
+  
+  .main-container .dashboard-grid, .games-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  /* Ajuste visual para que se parezca a Retos en móvil */
+  .dashboard-grid .card-base {
+    min-height: 200px;
+    justify-content: space-between;
+  }
+}

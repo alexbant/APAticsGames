@@ -1,0 +1,68 @@
+/* Contenedor principal */
+.auth-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 40px 20px;
+}
+
+.auth-container {
+  background: white;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+/* Formularios */
+.auth-form { display: none; }
+.auth-form.active { display: block; animation: fadeIn 0.4s ease; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h2 { color: #1e3a8a; margin-bottom: 25px; font-size: 1.8rem; }
+
+/* Inputs */
+.input-group { margin-bottom: 18px; text-align: left; }
+.input-group label { display: block; font-size: 14px; font-weight: 600; color: #475569; margin-bottom: 6px; }
+.input-group input {
+  width: 100%; padding: 12px 16px;
+  border: 1px solid #cbd5e1; border-radius: 12px;
+  outline: none; transition: 0.3s; font-family: inherit;
+}
+.input-group input:focus { border-color: #1e3a8a; box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.1); }
+
+/* Botón Principal */
+button[type="submit"] {
+  width: 100%; padding: 14px;
+  background: #1e3a8a; color: white;
+  border: none; border-radius: 12px;
+  font-weight: 600; cursor: pointer;
+  transition: 0.3s; margin-top: 10px; font-size: 1rem;
+}
+button[type="submit"]:hover { background: #1e40af; transform: translateY(-2px); }
+
+/* Switch (Cambiar entre login/registro) */
+.switch { margin-top: 25px; font-size: 14px; color: #64748b; }
+.switch span { color: #1e3a8a; font-weight: 600; cursor: pointer; transition: 0.2s; }
+.switch span:hover { text-decoration: underline; color: #2563eb; }
+
+/* === MODO OSCURO === */
+body.dark .auth-container {
+  background: #111827; box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+body.dark h2 { color: #e4ebf5; }
+body.dark .input-group label { color: #cbd5f5; }
+body.dark .input-group input {
+  background: #1f2937; border-color: #374151; color: white;
+}
+body.dark .input-group input:focus { border-color: var(--primary-color); }
+body.dark button[type="submit"] { background: var(--primary-color); }
+body.dark .switch { color: #94a3b8; }
+body.dark .switch span { color: var(--primary-color); }

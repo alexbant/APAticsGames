@@ -1,0 +1,102 @@
+
+h1, h2 {
+  color: var(--primary-color, #1e3a8a);
+}
+
+.theory-box {
+  background: var(--hover-bg, #f1f5f9);
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px 0;
+  overflow-wrap: break-word;
+}
+
+.example {
+  background: rgba(37, 99, 235, 0.1);
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.drop-zone {
+  min-height: 70px;
+  border: 2px dashed var(--border-color, #93c5fd);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 20px 0;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pieces {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.piece {
+  background: var(--hover-bg, #e0e7ff);
+  color: var(--text-color, #1e293b);
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: grab;
+  user-select: none;
+  border: 1px solid var(--border-color, transparent);
+  touch-action: none; /* Evita el scroll al arrastrar en móvil */
+}
+
+.piece.placed {
+  background: #dbeafe;
+  border: 2px solid #2563eb;
+}
+
+
+.feedback {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 10px;
+}
+
+.feedback.ok {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.feedback.error {
+  background: #fee2e2;
+  color: #7f1d1d;
+}
+
+
+.hidden {
+  display: none;
+}
+
+/* Corrección específica Modo Oscuro */
+body.dark .piece.placed {
+  background: rgba(37, 99, 235, 0.2);
+  border-color: var(--primary-color);
+  color: #e4ebf5;
+}
+
+body.dark .feedback.ok {
+  background: rgba(22, 101, 52, 0.2);
+  color: #86efac;
+}
+
+body.dark .feedback.error {
+  background: rgba(153, 27, 27, 0.2);
+  color: #fca5a5;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .theory-box {
+    padding: 15px;
+  }
+  .drop-zone {
+    padding: 12px;
+    min-height: 60px;
+  }
+}

@@ -1,0 +1,375 @@
+/* SECCIÓN PRINCIPAL */
+
+.account-card {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto; /* Centrar la tarjeta en la pantalla */
+  display: grid !important; /* Usar Grid para dividir en 2 columnas estrictas */
+  grid-template-columns: 320px 1fr !important; /* Izquierda fija (320px), Derecha flexible */
+  align-items: stretch !important; /* Estirar columnas para que tengan la misma altura */
+  gap: 40px;
+  padding: 40px; /* Más espacio interno */
+  text-align: left !important;
+}
+
+.profile-area {
+  grid-column: 1; /* Forzar a columna 1 */
+  border-right: 2px dashed #d7e3f7;
+  padding-right: 40px; /* Más separación con el contenido */
+}
+
+.content-area {
+  grid-column: 2; /* Forzar a columna 2 */
+  width: 100%;
+}
+
+/* PERFIL */
+.profile {
+  text-align: center;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #0f3c78, #4b74b8);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  font-size: 50px;
+  margin: 0 auto 15px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 18px rgba(15,60,120,0.4);
+}
+
+.side-extra {
+  margin-top: 25px;
+  font-size: 14px;
+}
+
+/* BOXES */
+.soft-box {
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  margin-bottom: 30px;
+}
+
+/* Filas de configuración (Alineación perfecta) */
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  width: 100%;
+}
+
+.setting-row:last-child {
+  border-bottom: none;
+}
+
+.setting-row span, 
+.setting-row label {
+  font-weight: 500;
+  text-align: left;
+  font-size: 1rem;
+  flex: 1;
+}
+
+/* PROGRESO */
+.progress-bar {
+  height: 12px;
+  background: #dce6f7;
+  border-radius: 10px;
+}
+.progress-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #0f3c78, #4b74b8);
+  border-radius: 10px;
+  transition: width 1s ease;
+}
+
+/* STATS */
+.stats {
+  display: flex;
+  justify-content: space-between; /* Distribuir uniformemente */
+  gap: 15px;
+}
+
+.stat {
+  flex: 1;
+  background: var(--hover-bg, #f8fafc);
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid var(--border-color, #e2e8f0);
+}
+
+
+
+/* ACTIONS */
+.actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+/* BOTONES — ESTILO COMPLETO */
+.actions button {
+  padding: 12px 22px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .25s ease;
+  font-size: 15px;
+}
+
+/* BOTÓN PRINCIPAL (Editar perfil) */
+.actions button#editBtn {
+  background: #0f3c78;
+  color: #fff;
+  border: 1px solid #0f3c78;
+}
+
+.actions button#editBtn:hover {
+  background: #154a99;
+  transform: translateY(-2px);
+}
+
+/* BOTÓN SECUNDARIO (Cerrar sesión) */
+.actions button.secondary {
+  background: #e4ebf5;
+  color: #0f2747;
+  border: 1px solid #c5d3e8;
+}
+
+.actions button.secondary:hover {
+  background: #d7e1f0;
+  transform: translateY(-2px);
+}
+
+/* BOTÓN DANGER (Eliminar cuenta) */
+.actions button.danger {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.actions button.danger:hover {
+  background: #fecaca;
+  transform: translateY(-2px);
+}
+
+/* CONTENEDOR DE BOTONES (por si necesitas centrarlos mejor) */
+.actions {
+  display: flex;
+  gap: 20px;
+  grid-column: 2; /* Asegurar que los botones estén en la columna derecha */
+  justify-content: flex-start; /* Alinear botones a la izquierda con el texto */
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+/* ================= MODO OSCURO ================= */
+body.dark .account-card {
+  background: #111827;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.4);
+  color: #e4ebf5;
+}
+
+body.dark .profile-area {
+  border-right-color: #374151;
+}
+
+body.dark .soft-box {
+  background: #1f2937;
+  color: #e5e7eb;
+}
+
+body.dark .progress-bar {
+  background: #374151;
+}
+
+body.dark .actions button.secondary {
+  background: #1f2937;
+  color: #e5e7eb;
+  border-color: #374151;
+}
+
+body.dark .actions button.secondary:hover {
+  background: #374151;
+  border-color: var(--primary-color);
+}
+
+body.dark .actions button.danger {
+  background: rgba(127, 29, 29, 0.2);
+  color: #fca5a5;
+  border-color: #7f1d1d;
+}
+
+body.dark .actions button.danger:hover {
+  background: rgba(127, 29, 29, 0.4);
+}
+
+/* ================= RESPONSIVE (MÓVILES) ================= */
+@media (max-width: 900px) {
+  .account-section {
+    padding: 30px 15px;
+  }
+
+  .account-card {
+    display: flex !important; /* Volver a flex en móvil para apilar */
+    flex-direction: column;
+    align-items: center; /* Centrar elementos en móvil */
+    padding: 25px;
+    gap: 30px;
+  }
+
+  .profile-area {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px dashed #d7e3f7;
+    padding-right: 0;
+    padding-bottom: 30px;
+  }
+
+  .soft-box {
+    /* Anula el centrado heredado para esta sección específica en móvil */
+    text-align: left;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100%;
+  }
+
+  .content-area {
+    width: 100%;
+    text-align: center; /* Centrar texto en móvil */
+  }
+
+  body.dark .profile-area {
+    border-bottom-color: #374151;
+  }
+
+  .content-area {
+    width: 100%;
+  }
+
+  .stats {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .stat {
+    flex: 1 1 100px; /* Se ajustan al ancho disponible */
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+  
+  .setting-row {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 20px 0 !important;
+    margin-bottom: 25px !important;
+    border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Mover checkbox a la izquierda en móvil */
+  #darkModeToggle, #soundToggle, #notifToggle {
+    order: -1 !important;
+    margin-left: 0 !important;
+    margin-right: 15px !important;
+  }
+
+  .setting-row span, 
+  .setting-row label {
+    text-align: left !important;
+    flex: 1 !important;
+  }
+}
+
+/* ================= INTERRUPTORES DE CONFIGURACIÓN (TOGGLES) ================= */
+/* Diseño moderno para los checkboxes de Modo Oscuro, Sonido y Notificaciones */
+
+#darkModeToggle, 
+#soundToggle, 
+#notifToggle {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 52px;
+  height: 28px;
+  background: var(--input-border, #cbd5e1);
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  vertical-align: middle;
+  flex-shrink: 0;
+  margin-left: 15px;
+}
+
+#darkModeToggle::after, 
+#soundToggle::after, 
+#notifToggle::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  background: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Estado Activo (ON) */
+#darkModeToggle:checked, 
+#soundToggle:checked, 
+#notifToggle:checked {
+  background: var(--primary-color, #0f3c78);
+}
+
+#darkModeToggle:checked::after, 
+#soundToggle:checked::after, 
+#notifToggle:checked::after {
+  transform: translateX(24px);
+}
+
+/* Ajustes para Modo Oscuro */
+body.dark #darkModeToggle, 
+body.dark #soundToggle, 
+body.dark #notifToggle {
+  background: #475569;
+}
+
+body.dark #darkModeToggle:checked, 
+body.dark #soundToggle:checked, 
+body.dark #notifToggle:checked {
+  background: var(--primary-color);
+}
+
+/* Eliminar el hover por ahora (opcional) */
+#darkModeToggle:hover,
+#soundToggle:hover,
+#notifToggle:hover {
+    box-shadow: none;
+}
+
+body.dark .setting-row {
+  border-bottom-color: rgba(255,255,255,0.05);
+}

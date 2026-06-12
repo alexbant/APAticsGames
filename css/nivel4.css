@@ -1,0 +1,88 @@
+
+.reference {
+  margin-top: 25px;
+  background: var(--hover-bg, #f8fafc);
+  padding: 20px;
+  border-radius: 12px;
+  line-height: 1.6;
+  font-size: 1rem;
+  overflow-wrap: break-word;
+}
+
+.ref-part {
+  padding: 4px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background .2s;
+}
+
+.ref-part:hover {
+  background: rgba(37, 99, 235, 0.1);
+}
+
+.correct {
+  background: #22c55e !important;
+  color: white !important;
+}
+
+.incorrect {
+  background: #ef4444 !important;
+  color: white !important;
+}
+
+.feedback {
+  margin-top: 18px;
+  padding: 15px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.feedback.error {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.feedback.ok {
+  background: #dcfce7;
+  color: #166534;
+}
+
+
+.hidden {
+  display: none;
+}
+
+/* Corrección específica Modo Oscuro */
+body.dark .reference {
+  background: #1f2937;
+  color: #e4ebf5;
+}
+
+body.dark .feedback.ok {
+  background: rgba(22, 101, 52, 0.2);
+  color: #86efac;
+}
+
+body.dark .feedback.error {
+  background: rgba(153, 27, 27, 0.2);
+  color: #fca5a5;
+}
+
+/* Estilos suaves para el texto resaltado en modo oscuro */
+body.dark .correct {
+  background: rgba(22, 101, 52, 0.5) !important;
+  color: #dcfce7 !important;
+}
+
+body.dark .incorrect {
+  background: rgba(153, 27, 27, 0.5) !important;
+  color: #fee2e2 !important;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .reference {
+    padding: 15px;
+    font-size: 0.95rem;
+  }
+}

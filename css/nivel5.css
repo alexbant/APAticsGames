@@ -1,0 +1,76 @@
+
+h1, h2 {
+  color: var(--primary-color, #1e3a8a);
+}
+
+.reference {
+  margin-top: 20px;
+  background: var(--hover-bg, #f1f5f9);
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 1rem;
+  overflow-wrap: break-word;
+}
+
+.blank {
+  display: inline-block;
+  min-width: 120px;
+  padding: 4px 8px;
+  border-bottom: 2px dashed var(--primary-color, #1e3a8a);
+  margin: 0 4px;
+  color: var(--primary-color, #1e3a8a);
+  font-weight: 600;
+}
+
+/* BOTONES Y OPCIONES */
+
+.options {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.option.correct {
+  background: #22c55e;
+}
+
+.option.wrong {
+  background: #ef4444;
+}
+
+
+.hidden {
+  display: none;
+}
+
+/* Corrección específica Modo Oscuro */
+body.dark .reference {
+  background: #1f2937;
+  color: #e4ebf5;
+}
+
+/* Feedback Messages */
+.feedback-msg {
+  margin-top: 15px;
+  font-weight: 600;
+}
+.feedback-msg.correct { color: #166534; }
+.feedback-msg.wrong { color: #7f1d1d; }
+
+/* Ajuste Dark Mode */
+body.dark .feedback-msg.correct { color: #4ade80; }
+body.dark .feedback-msg.wrong { color: #f87171; }
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .reference {
+    padding: 15px;
+    font-size: 0.95rem;
+  }
+  .blank { min-width: 80px; }
+}
+
+/* FIX: Asegurar que el feedback ocupe todo el ancho en el grid */
+.options .feedback-msg {
+  grid-column: 1 / -1;
+}
