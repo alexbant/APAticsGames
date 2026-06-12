@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APAticGames</title>
+
+  <link rel="icon" href="/images/image-Photoroom.png" type="image/png">
+
+  <link rel="stylesheet" href="/css/nivel1.css">
+  <link rel="stylesheet" href="/css/theme.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<script>if(localStorage.getItem('darkMode')==='enabled')document.body.classList.add('dark')</script>
+
+<header>
+  <a href="Inicio.html" class="logo">
+    <img src="/images/image-Photoroom.png" alt="APAticGames Logo">
+  </a>
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a class="active" href="citas.html">Juegos</a>
+    <a href="retos.html">Retos</a>
+    <a href="cuenta.html">Cuenta</a>
+    <a href="procesos.html">Estadísticas</a>
+    <a class="btn-outline" href="ingresar.html">Ingresar</a>
+  </nav>
+</header>
+
+<main class="game-container">
+
+  <!-- INTRO -->
+  <section id="intro" class="card">
+    <span class="level">Nivel 1</span>
+    <h1>Fundamentos de Citas</h1>
+    <div class="intro-compact">
+        <p class="intro-description">
+            Antes de aprender a escribir citas, es fundamental entender <strong>qué es una cita APA</strong> y por qué se utiliza. En este nivel reconocerás su propósito y su importancia para evitar el plagio.
+        </p>
+        <ul>
+            <li>Aprenderás qué es una cita y para qué sirve.</li>
+            <li>Entenderás la importancia de dar crédito al autor.</li>
+            <li>Reconocerás cómo las citas fortalecen tus textos.</li>
+        </ul>
+        <div class="mission">
+            <i class="fa-solid fa-gamepad"></i> <strong>Tu Misión:</strong> Responde correctamente a las preguntas sobre los conceptos básicos de las citas.
+        </div>
+    </div>
+    <button class="btn-primary" onclick="startGame()">Comenzar</button>
+  </section>
+
+  <!-- TEORÍA -->
+  <section id="theory" class="card hidden">
+    <h2><i class="fa-solid fa-book"></i> Conceptos clave</h2>
+    <p>
+      Una <strong>cita APA</strong> es una referencia breve dentro del texto
+      que identifica la fuente original de una idea.
+    </p>
+    <ul>
+      <li><i class="fa-solid fa-check"></i> Reconoce el trabajo de otros autores</li>
+      <li><i class="fa-solid fa-check"></i> Evita el plagio académico</li>
+      <li><i class="fa-solid fa-check"></i> Da respaldo y credibilidad</li>
+    </ul>
+    <button class="btn-primary" onclick="startQuestions()">Iniciar desafío</button>
+  </section>
+
+  <!-- JUEGO -->
+  <section id="quiz" class="card hidden">
+    <p id="progress"></p>
+    <h2 id="question"></h2>
+    <div id="options" class="options"></div>
+  </section>
+
+  <!-- RESULTADOS -->
+  <section id="result" class="card hidden">
+    <h2>🎉 Nivel completado</h2>
+    <p id="scoreText"></p>
+    <p id="stars"></p>
+    <a href="citas.html" class="btn-secondary">Volver a Citas APA</a>
+  </section>
+
+</main>
+
+<footer></footer>
+
+<script src="/js/theme.js" defer></script>
+<script src="/js/nivel1.js" defer></script>
+<script src="/js/footer.js" defer></script>
+</body>
+</html>

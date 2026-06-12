@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APAticGames</title>
+
+  <link rel="icon" href="/images/image-Photoroom.png" type="image/png">
+
+  <!-- CSS PROPIO -->
+  <link rel="stylesheet" href="/css/retos.css">
+
+  <!-- CSS GLOBAL (el mismo que Inicio) -->
+  <link rel="stylesheet" href="/css/theme.css">
+
+  <!-- Fuente -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+<script>if(localStorage.getItem('darkMode')==='enabled')document.body.classList.add('dark')</script>
+
+<!-- ========================= -->
+<!-- HEADER GLOBAL -->
+<!-- ========================= -->
+<header>
+  <a href="Inicio.html" class="logo">
+    <img src="/images/image-Photoroom.png" alt="APAticGames Logo">
+  </a>
+
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a href="juegos.html">Juegos</a>
+    <a class="active" href="retos.html">Retos</a>
+    <a href="cuenta.html">Cuenta</a>
+    <a href="procesos.html">Estadísticas</a>
+    <a class="btn-outline" href="ingresar.html">Ingresar</a>
+  </nav>
+</header>
+
+<!-- ========================= -->
+<!-- CONTENIDO PRINCIPAL -->
+<!-- ========================= -->
+<main class="main-container">
+
+  <div class="section-header">
+    <h1><i class="fa-solid fa-trophy"></i> Retos</h1>
+    <p>
+      Completa desafíos especiales para mejorar tu dominio de las Normas APA
+      y avanzar dentro de APAticGames.
+    </p>
+  </div>
+
+  <div class="dashboard-grid">
+
+    <div class="reto-card">
+      <div class="icon"><i class="fa-solid fa-calendar-day"></i></div>
+      <h3>Reto Diario</h3>
+      <p>Un desafío rápido para practicar APA todos los días. Mantén tu racha y gana puntos extra.</p>
+      <button onclick="startReto('diario')">Comenzar</button>
+    </div>
+
+    <div class="reto-card">
+      <div class="icon"><i class="fa-solid fa-quote-right"></i></div>
+      <h3>Reto Semanal</h3>
+      <p></p>
+      <button onclick="startReto('citas')">Comenzar</button>
+    </div>
+
+    <div class="reto-card">
+      <div class="icon"><i class="fa-solid fa-list-check"></i></div>
+      <h3>Reto de Referencias</h3>
+      <p>Identifica y corrige referencias en formato APA 7. Aprende a distinguir fuentes confiables.</p>
+      <button onclick="startReto('referencias')">Comenzar</button>
+    </div>
+
+    <div class="reto-card locked">
+      <div class="icon"><i class="fa-solid fa-lock"></i></div>
+      <h3>Reto Avanzado</h3>
+      <p>El desafío definitivo. Completa los Juegos y Jerarquía para desbloquear este nivel experto.</p>
+      <button disabled>Bloqueado</button>
+    </div>
+
+  </div>
+
+</main>
+
+<footer></footer>
+<!-- JS -->
+<script src="/js/retos.js"></script>
+<script src="/js/theme.js"></script>
+<script src="/js/footer.js" defer></script>
+
+</body>
+</html>

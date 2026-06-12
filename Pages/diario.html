@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APAticGames</title>
+
+  <link rel="icon" href="/images/image-Photoroom.png" type="image/png">
+
+  <link rel="stylesheet" href="/css/diario.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<script>if(localStorage.getItem('darkMode')==='enabled')document.body.classList.add('dark')</script>
+
+<header>
+  <a href="Inicio.html" class="logo">
+    <img src="/images/image-Photoroom.png" alt="APAticGames">
+  </a>
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a href="juegos.html">Juegos</a>
+    <a class="active" href="retos.html">Retos</a>
+    <a href="cuenta.html">Cuenta</a>
+    <a href="procesos.html">Estadísticas</a>
+    <a class="btn-outline" href="ingresar.html">Ingresar</a>
+  </nav>
+</header>
+
+<main class="game-container">
+
+  <!-- INTRO -->
+  <section id="intro" class="card">
+    <span class="level"><i class="fa-solid fa-calendar-day"></i> Reto Diario</span>
+    <h1>Citas APA rápidas</h1>
+    <p>
+      Pon a prueba tus conocimientos con un reto corto sobre
+      <strong>citas en Normas APA 7</strong>.
+    </p>
+    <p>
+      Completa las 5 preguntas para superar el reto diario.
+    </p>
+    <button class="btn-primary" onclick="startGame()">Comenzar reto</button>
+  </section>
+
+  <!-- TEORÍA -->
+  <section id="theory" class="card hidden">
+    <div class="theory-box">
+      <h3><i class="fa-solid fa-book"></i> Recordatorio rápido</h3>
+      <ul>
+        <li><i class="fa-solid fa-check"></i> <span>Las citas cortas van <strong>entre comillas</strong>.</span></li>
+        <li><i class="fa-solid fa-check"></i> <span>El año va entre paréntesis, <strong>sin dos puntos</strong>.</span></li>
+        <li><i class="fa-solid fa-check"></i> <span>El punto va <strong>después</strong> del paréntesis.</span></li>
+      </ul>
+    </div>
+    <button class="btn-primary" onclick="startQuestions()">Iniciar desafío</button>
+  </section>
+
+  <!-- JUEGO -->
+  <section id="quiz" class="card hidden">
+    <p id="progress"></p>
+    <h2 id="question"></h2>
+    <div id="options" class="options"></div>
+  </section>
+
+  <!-- RESULTADO -->
+  <section id="result" class="card hidden">
+    <h2><i class="fa-solid fa-trophy"></i> Reto completado</h2>
+    <p id="scoreText"></p>
+    <p id="stars"></p>
+    <a href="retos.html" class="btn-secondary">Volver a Retos</a>
+  </section>
+
+</main>
+
+<footer></footer>
+
+<script src="/js/diario.js"></script>
+<script src="/js/theme.js"></script>
+<script src="/js/footer.js" defer></script>
+</body>
+</html>

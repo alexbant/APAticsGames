@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APAticGames</title>
+
+  <link rel="icon" href="/images/image-Photoroom.png" type="image/png">
+
+  <!-- CSS PROPIO -->
+  <link rel="stylesheet" href="/css/procesos.css">
+
+  <!-- CSS GLOBAL (modo oscuro) -->
+  <link rel="stylesheet" href="/css/theme.css">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<script>if(localStorage.getItem('darkMode')==='enabled')document.body.classList.add('dark')</script>
+
+<header>
+  <a href="Inicio.html" class="logo">
+    <img src="/images/image-Photoroom.png" alt="APAticsGames Logo">
+  </a>
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a href="juegos.html">Juegos</a>
+    <a href="retos.html">Retos</a>
+    <a href="cuenta.html">Cuenta</a>
+    <a class="active" href="#">Estadísticas</a>
+    <a class="btn-outline" href="#">Salir</a>
+  </nav>
+</header>
+
+<section class="main-container">
+  <div class="section-header">
+    <h1>Proceso de Aprendizaje</h1>
+    <p>Sigue cada paso, completa desafíos y conviértete en un experto en Normas APA.</p>
+  </div>
+
+  <div class="dashboard-grid">
+
+    <div class="card-base">
+      <span class="step">1</span>
+      <h3>Crear cuenta</h3>
+      <p>Crea tu cuenta por primera vez en APAticGames.</p>
+      <span class="status done"><i class="fa-solid fa-circle-check"></i> Completado</span>
+    </div>
+
+    <div class="card-base">
+      <span class="step">2</span>
+      <h3>Citas en el texto</h3>
+      <p>Aprende a identificar y aplicar citas correctamente.</p>
+      <span class="status active"><i class="fa-solid fa-spinner"></i> En progreso</span>
+    </div>
+
+    <div class="card-base">
+      <span class="step">3</span>
+      <h3>Referencias</h3>
+      <p>Domina la estructura correcta de las referencias APA.</p>
+      <span class="status locked"><i class="fa-solid fa-lock"></i> Bloqueado</span>
+    </div>
+
+    <div class="card-base">
+      <span class="step">4</span>
+      <h3>Formato del documento</h3>
+      <p>Configura márgenes, interlineado y estilos.</p>
+      <span class="status locked"><i class="fa-solid fa-lock"></i> Bloqueado</span>
+    </div>
+
+    <div class="card-base final">
+      <span class="step">5</span>
+      <h3>Evaluación final</h3>
+      <p>Pon a prueba todo lo aprendido.</p>
+      <span class="status locked"><i class="fa-solid fa-lock"></i> Bloqueado</span>
+    </div>
+
+    <div class="card-base final">
+      <span class="step"><i class="fa-solid fa-dragon"></i></span>
+      <h3>Duelo de Guardianes</h3>
+      <p>Enfréntate a los jefes finales y demuestra tu maestría.</p>
+      <span class="status locked"><i class="fa-solid fa-lock"></i> Bloqueado</span>
+    </div>
+
+  </div>
+</section>
+
+<footer></footer>
+
+<!-- JS GLOBAL -->
+<script src="/js/theme.js"></script>
+
+<!-- JS PROPIO -->
+<script src="/js/procesos.js"></script>
+<script src="/js/footer.js" defer></script>
+</body>
+</html>

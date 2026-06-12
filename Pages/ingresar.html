@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APAticGames</title>
+
+  <link rel="icon" href="/images/image-Photoroom.png" type="image/png">
+
+  <!-- CSS PROPIO -->
+  <link rel="stylesheet" href="/css/ingresar.css">
+
+  <!-- CSS GLOBAL -->
+  <link rel="stylesheet" href="/css/theme.css">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Estilos mejorados para Login/Registro */
+    body {
+      background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .auth-section {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .auth-container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 40px;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      width: 100%;
+      max-width: 420px;
+      border: 1px solid #fff;
+    }
+
+    .auth-form h2 {
+      text-align: center;
+      color: #1e293b;
+      margin-bottom: 25px;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #475569;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: #f8fafc;
+      color: #334155;
+    }
+
+    .input-group input:focus {
+      border-color: #0f3c78;
+      background: #fff;
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(15, 60, 120, 0.1);
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 14px;
+      background: #0f3c78;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 10px;
+    }
+
+    button[type="submit"]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(15, 60, 120, 0.2);
+      background: #164fa0;
+    }
+
+    .google-btn {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      border: 1px solid #cbd5e1;
+    }
+
+    .google-btn {
+      background: #fff;
+      color: #334155;
+    }
+
+    .google-btn:hover {
+      background: #f8fafc;
+      border-color: #94a3b8;
+      transform: translateY(-1px);
+    }
+
+    .google-btn img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .guest-btn {
+      background: #475569;
+      color: white;
+      border: none;
+    }
+
+    .guest-btn:hover {
+      background: #334155;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .switch {
+      text-align: center;
+      margin-top: 25px;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    .switch span {
+      color: #0f3c78;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    /* DARK MODE OVERRIDES */
+    body.dark .auth-container {
+      background: rgba(30, 41, 59, 0.95);
+      border-color: #334155;
+    }
+    body.dark .auth-form h2 {
+      color: #f1f5f9;
+    }
+    body.dark .input-group label {
+      color: #cbd5e1;
+    }
+    body.dark .input-group input {
+      background: #0f172a;
+      border-color: #334155;
+      color: #f1f5f9;
+    }
+    body.dark .input-group input:focus {
+      border-color: #60a5fa;
+      box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.1);
+    }
+    body.dark .google-btn {
+      background: #1e293b;
+      color: #f1f5f9;
+      border-color: #334155;
+    }
+    body.dark .google-btn:hover {
+      background: #334155;
+    }
+    body.dark .switch {
+      color: #94a3b8;
+    }
+    body.dark .switch span {
+      color: #60a5fa;
+    }
+  </style>
+</head>
+<body>
+<script>if(localStorage.getItem('darkMode')==='enabled')document.body.classList.add('dark')</script>
+
+<header>
+  <a href="Inicio.html" class="logo">
+    <img src="/images/image-Photoroom.png" alt="APAticGames Logo">
+  </a>
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a href="juegos.html">Juegos</a>
+    <a href="retos.html">Retos</a>
+    <a href="cuenta.html">Cuenta</a>
+    <a href="procesos.html">Estadísticas</a>
+    <a class="active btn-outline" href="#">Ingresar</a>
+  </nav>
+</header>
+
+<section class="auth-section">
+  <div class="auth-container">
+
+    <!-- LOGIN -->
+    <form class="auth-form login active" id="loginForm">
+      <h2>Iniciar Sesión</h2>
+
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" id="loginEmail" placeholder="correo@ejemplo.com" required>
+      </div>
+
+      <div class="input-group">
+        <label>Contraseña</label>
+        <input type="password" id="loginPassword" placeholder="••••••••" required>
+      </div>
+
+      <button type="submit">Ingresar</button>
+      <button type="button" id="googleLoginBtn" class="google-btn">
+        <img src="/images/google.png" alt="Google"> Ingresar con Google
+      </button>
+      <button type="button" id="guestLoginBtn" class="google-btn guest-btn">
+        <i class="fa-solid fa-user-secret"></i> Ingresar como Invitado
+      </button>
+
+      <p class="switch">
+        ¿No tienes cuenta?
+        <span id="showRegister">Crear cuenta</span>
+      </p>
+    </form>
+
+    <!-- REGISTRO -->
+    <form class="auth-form register" id="registerForm">
+      <h2>Crear Cuenta</h2>
+
+      <div class="input-group">
+        <label>Nombre</label>
+        <input type="text" id="registerName" placeholder="Tu nombre" required>
+      </div>
+
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" id="registerEmail" placeholder="correo@ejemplo.com" required>
+      </div>
+
+      <div class="input-group">
+        <label>Contraseña</label>
+        <input type="password" id="registerPassword" placeholder="••••••••" required>
+      </div>
+
+      <button type="submit" id="registerButton">Registrarse</button>
+      <button type="button" id="googleRegisterBtn" class="google-btn">
+        <img src="/images/google.png" alt="Google"> Registrarse con Google
+      </button>
+      <button type="button" id="guestRegisterBtn" class="google-btn guest-btn">
+        <i class="fa-solid fa-user-secret"></i> Ingresar como Invitado
+      </button>
+
+      <p class="switch">
+        ¿Ya tienes cuenta?
+        <span id="showLogin">Iniciar sesión</span>
+      </p>
+    </form>
+
+  </div>
+</section>
+
+<footer></footer>
+
+<!-- JS GLOBAL -->
+<script src="/js/theme.js"></script>
+
+<!-- JS PROPIO -->
+<script src="/js/ingresar.js"></script>
+
+<!-- JS LOGIN -->
+<script src="/js/registro.js" type="module" defer></script>
+<script src="/js/login.js" type="module" defer></script>
+<script src="/js/footer.js" defer></script>
+
+</body>
+</html>

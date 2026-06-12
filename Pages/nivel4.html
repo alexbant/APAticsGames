@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APAticGames</title>
+
+  <link rel="icon" href="/images/image-Photoroom.png" type="image/png">
+
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/nivel4.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<script>if(localStorage.getItem('darkMode')==='enabled')document.body.classList.add('dark')</script>
+
+<header>
+  <a href="Inicio.html" class="logo">
+    <img src="/images/image-Photoroom.png" alt="APAticGames Logo">
+  </a>
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a class="active" href="citas.html">Juegos</a>
+    <a href="retos.html">Retos</a>
+    <a href="cuenta.html">Cuenta</a>
+    <a href="procesos.html">Estadísticas</a>
+    <a class="btn-outline" href="ingresar.html">Ingresar</a>
+  </nav>
+</header>
+
+<main class="game-container">
+
+  <section id="intro" class="card">
+    <span class="level">Nivel 4</span>
+    <h1>Citas Largas (> 40 palabras)</h1>
+    <div class="intro-compact">
+        <p class="intro-description">
+            Las citas con más de 40 palabras tienen reglas especiales: van en un <strong>bloque independiente</strong>, sin comillas y con sangría. ¡Aprende a detectar sus errores más comunes!
+        </p>
+        <ul>
+            <li>Practicarás el formato de bloque con sangría.</li>
+            <li>Recordarás que no se usan comillas en estas citas.</li>
+            <li>Identificarás la ubicación correcta del punto final.</li>
+        </ul>
+        <div class="mission">
+            <i class="fa-solid fa-magnifying-glass"></i> <strong>Tu Misión:</strong> Observa la cita en bloque y haz clic en la parte que contiene el error de formato.
+        </div>
+    </div>
+    <button class="btn-primary" onclick="startGame()">Comenzar</button>
+  </section>
+
+  <section id="game" class="card hidden">
+    <p id="progress"></p>
+    <h2>Detecta el error en la cita larga</h2>
+
+    <p id="instruction"></p>
+    <div id="reference" class="reference"></div>
+    <p id="feedback" class="feedback"></p>
+
+    <button id="nextBtn" class="btn-primary hidden"></button>
+  </section>
+
+  <section id="result" class="card hidden">
+    <h2>Resultado del nivel</h2>
+    <p id="scoreText"></p>
+    <p id="stars"></p>
+
+    <a href="citas.html" class="btn-play">Volver a Citas APA</a>
+  </section>
+
+</main>
+
+<footer></footer>
+
+<script src="/js/theme.js" defer></script>
+<script src="/js/nivel4.js" defer></script>
+<script src="/js/footer.js" defer></script>
+</body>
+</html>

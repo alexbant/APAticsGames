@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APAticGames</title>
+
+  <link rel="icon" href="/images/image-Photoroom.png" type="image/png">
+
+  <link rel="stylesheet" href="/css/jerarquia.css">
+  <link rel="stylesheet" href="/css/theme.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<script>if(localStorage.getItem('darkMode')==='enabled')document.body.classList.add('dark')</script>
+
+<header>
+  <a href="Inicio.html" class="logo">
+    <img src="/images/image-Photoroom.png" alt="APAticGames Logo">
+  </a>
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a href="juegos.html">Juegos</a>
+    <a href="retos.html">Retos</a>
+    <a href="cuenta.html">Cuenta</a>
+    <a href="procesos.html">Estadísticas</a>
+    <a class="btn-outline" href="ingresar.html">Ingresar</a>
+  </nav>
+</header>
+
+<main class="game-container">
+
+  <!-- HUD DE JUEGO (Oculto al inicio) -->
+  <div id="game-hud" class="game-hud hidden">
+    <div class="score-display">
+      <i class="fa-solid fa-star"></i> <span id="current-score">0</span>
+    </div>
+    <div class="progress-bar">
+      <div id="overall-progress-fill"></div>
+    </div>
+  </div>
+
+  <!-- INTRODUCCIÓN -->
+  <section id="intro" class="card">
+    <span class="level">Módulo de Jerarquía</span>
+    <h1><i class="fa-solid fa-layer-group"></i> Maestro de la Jerarquía APA</h1>
+    <p>
+      Domina la estructura de los documentos académicos a través de 3 fases intensivas.
+      Aprende a identificar, formatear y organizar los encabezados según APA 7ª Edición.
+    </p>
+    
+    <div class="phases-preview">
+      <div class="phase-item" id="preview-p1"><i class="fa-solid fa-list-ol"></i> Fase 1: Clasificación</div>
+      <div class="phase-item" id="preview-p2"><i class="fa-solid fa-magnifying-glass-arrow-right"></i> Fase 2: Corrección</div>
+      <div class="phase-item" id="preview-p3"><i class="fa-solid fa-cubes-stacked"></i> Fase 3: Estructura</div>
+    </div>
+
+    <button class="btn-primary" onclick="startPhase(1)">Comenzar Aventura</button>
+  </section>
+
+  <!-- FASE 1: CLASIFICACIÓN Y FORMATO -->
+  <section id="phase1" class="card hidden">
+    <p id="p1-progress">1/5</p>
+    <h2>Fase 1: Clasificación</h2>
+    
+    <p class="instruction" id="p1-context"></p>
+
+    <div class="doc-preview">
+      <div id="p1-heading" class="heading-preview">Título de Ejemplo</div>
+    </div>
+
+    <div class="tools-wrapper">
+      <div class="tool-section">
+        <label>Nivel APA</label>
+        <div class="level-buttons">
+          <button class="lvl-btn" onclick="selectLevel(1)">1</button>
+          <button class="lvl-btn" onclick="selectLevel(2)">2</button>
+          <button class="lvl-btn" onclick="selectLevel(3)">3</button>
+          <button class="lvl-btn" onclick="selectLevel(4)">4</button>
+          <button class="lvl-btn" onclick="selectLevel(5)">5</button>
+        </div>
+      </div>
+
+      <div class="tool-section">
+        <label>Formato</label>
+        <div class="format-buttons">
+          <button class="btn-icon" id="btn-bold" onclick="toggleFormat('bold')"><i class="fa-solid fa-bold"></i></button>
+          <button class="btn-icon" id="btn-italic" onclick="toggleFormat('italic')"><i class="fa-solid fa-italic"></i></button>
+          <button class="btn-icon" id="btn-center" onclick="toggleFormat('center')"><i class="fa-solid fa-align-center"></i></button>
+          <button class="btn-icon" id="btn-left" onclick="toggleFormat('left')"><i class="fa-solid fa-align-left"></i></button>
+          <button class="btn-icon" id="btn-indent" onclick="toggleFormat('indent')"><i class="fa-solid fa-indent"></i></button>
+          <button class="btn-icon" id="btn-dot" onclick="toggleFormat('dot')">.</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="p1-feedback" class="feedback hidden"></div>
+    <button class="btn-primary" onclick="checkPhase1()">Verificar</button>
+  </section>
+
+  <!-- FASE 2: DETECTAR EL ERROR -->
+  <section id="phase2" class="card hidden">
+    <p id="p2-progress">1/3</p>
+    <h2>Fase 2: Corrección</h2>
+    <p class="instruction">Este encabezado tiene errores de formato. ¡Corrígelo!</p>
+
+    <div class="doc-preview">
+      <div id="p2-preview" class="editable">Texto Incorrecto</div>
+    </div>
+
+    <div class="format-buttons centered">
+      <button class="btn-icon" id="btn-p2-bold" onclick="fixFormat('bold')"><i class="fa-solid fa-bold"></i></button>
+      <button class="btn-icon" id="btn-p2-italic" onclick="fixFormat('italic')"><i class="fa-solid fa-italic"></i></button>
+      <button class="btn-icon" id="btn-p2-center" onclick="fixFormat('center')"><i class="fa-solid fa-align-center"></i></button>
+      <button class="btn-icon" id="btn-p2-left" onclick="fixFormat('left')"><i class="fa-solid fa-align-left"></i></button>
+      <button class="btn-icon" id="btn-p2-indent" onclick="fixFormat('indent')"><i class="fa-solid fa-indent"></i></button>
+      <button class="btn-icon" id="btn-p2-dot" onclick="fixFormat('dot')">.</button>
+    </div>
+
+    <div id="p2-feedback" class="feedback hidden"></div>
+    <button class="btn-primary" onclick="checkPhase2()">Corregir</button>
+  </section>
+
+  <!-- FASE 3: CONSTRUYE LA TORRE -->
+  <section id="phase3" class="card hidden">
+    <p id="p3-progress">1/1</p>
+    <h2>Fase 3: Estructura Lógica</h2>
+    <p class="instruction">Arrastra los bloques a la derecha para formar una estructura jerárquica correcta.</p>
+
+    <div class="tower-game">
+      <div class="source-zone" id="sourceZone">
+        <!-- Draggable items will be here -->
+      </div>
+
+      <div class="target-zone" id="targetZone">
+        <div class="tower-base">Estructura del Documento</div>
+        <!-- Drop zone -->
+      </div>
+    </div>
+
+    <div id="p3-feedback" class="feedback hidden"></div>
+    <button class="btn-primary" onclick="checkPhase3()">Verificar Estructura</button>
+  </section>
+
+  <!-- RESULTADO FINAL -->
+  <section id="result" class="card hidden" style="text-align: center;">
+    <h2><i class="fa-solid fa-trophy" style="color: #f59e0b;"></i> ¡Módulo Completado!</h2>
+    <p id="finalScore"></p>
+    <p id="finalMessage"></p>
+    <div id="badgeContainer"></div>
+    <a href="Inicio.html" class="btn-primary">Volver al Inicio</a>
+  </section>
+
+</main>
+
+<footer></footer>
+
+<script src="/js/theme.js"></script>
+<script src="/js/jerarquia.js"></script>
+<script src="/js/footer.js" defer></script>
+</body>
+</html>

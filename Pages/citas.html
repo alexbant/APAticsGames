@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APAticGames</title>
+
+  <link rel="icon" href="/images/image-Photoroom.png" type="image/png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/citas.css">
+  <link rel="stylesheet" href="/css/theme.css">
+
+  <!-- Fuente -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .level-card.locked button {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+<script>if(localStorage.getItem('darkMode')==='enabled')document.body.classList.add('dark')</script>
+
+<!-- NAVBAR -->
+<header>
+  <a href="Inicio.html" class="logo">
+    <img src="/images/image-Photoroom.png" alt="APAticGames Logo">
+  </a>
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a class="active" href="juegos.html">Juegos</a>
+    <a href="retos.html">Retos</a>
+    <a href="cuenta.html">Cuenta</a>
+    <a href="procesos.html">Estadísticas</a>
+    <a class="btn-outline" href="ingresar.html">Ingresar</a>
+  </nav>
+</header>
+
+<main class="layout">
+
+  <!-- MENÚ LATERAL -->
+  <aside class="sidebar">
+    <h3>Módulos APA</h3>
+    <ul>
+  <li class="active"> Citas APA</li>
+  <li>
+    <a href="referencias.html"> Referencias APA</a>
+  </li>
+  <li>
+    <a href="formato.html"> Formato APA</a>
+  </li>
+  <li>
+    <a href="progreso.html"> Mi progreso</a>
+  </li>
+</ul>
+
+  </aside>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <section class="content">
+    <h1>Citas APA 7</h1>
+    <p class="subtitle">Avanza nivel por nivel y domina las citas académicas.</p>
+
+    <div class="levels-grid">
+
+      <!-- NIVEL 1 -->
+      <div class="level-card unlocked card-base" data-level="1">
+        <span class="level">Nivel 1</span>
+        <h3>Introducción a las citas</h3>
+        <p>Conceptos básicos.</p>
+        <div class="stars"></div>
+        <button onclick="startLevel(1)">Jugar</button>
+      </div>
+
+      <!-- NIVEL 2 -->
+      <div class="level-card locked card-base" data-level="2">
+        <span class="level">Nivel 2</span>
+        <h3>Partes de una cita</h3>
+        <p>Autor, año y texto.</p>
+        <div class="stars"></div>
+        <button onclick="startLevel(2)">Jugar</button>
+      </div>
+
+      <!-- NIVEL 3 -->
+      <div class="level-card locked card-base" data-level="3">
+        <span class="level">Nivel 3</span>
+        <h3>Citas textuales cortas</h3>
+        <p>Uso correcto de comillas.</p>
+        <div class="stars"></div>
+        <button onclick="startLevel(3)">Jugar</button>
+      </div>
+
+      <!-- NIVEL 4 -->
+      <div class="level-card locked card-base" data-level="4">
+        <span class="level">Nivel 4</span>
+        <h3>Citas textuales largas</h3>
+        <p>Formato en bloque.</p>
+        <div class="stars"></div>
+        <button onclick="startLevel(4)">Jugar</button>
+      </div>
+
+      <!-- NIVEL 5 -->
+      <div class="level-card locked card-base" data-level="5">
+        <span class="level">Nivel 5</span>
+        <h3>Parafraseo correcto</h3>
+        <p>Evita el plagio.</p>
+        <div class="stars"></div>
+        <button onclick="startLevel(5)">Jugar</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PANEL DERECHO -->
+  <aside class="progress">
+    <h3>Tu progreso</h3>
+    <p><strong>Nivel actual:</strong> 1</p>
+
+    <div class="bar">
+      <div class="bar-fill" style="width:20%"></div>
+    </div>
+
+    <p class="stars"></p>
+  </aside>
+
+</main>
+
+<footer></footer>
+
+<!-- JS -->
+<script src="/js/theme.js" defer></script>
+<script src="/js/citas.js" defer></script>
+<script src="/js/footer.js" defer></script>
+</body>
+</html>

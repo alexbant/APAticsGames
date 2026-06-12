@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APAticGames</title>
+
+  <link rel="icon" href="/images/image-Photoroom.png" type="image/png">
+
+  <!-- CSS PROPIO -->
+  <link rel="stylesheet" href="/css/juegos.css">
+
+  <!-- CSS GLOBAL (tema / modo oscuro) -->
+  <link rel="stylesheet" href="/css/theme.css">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<script>if(localStorage.getItem('darkMode')==='enabled')document.body.classList.add('dark')</script>
+
+<header>
+   <a href="Inicio.html" class="logo">
+    <img src="/images/image-Photoroom.png" alt="APAticGames Logo">
+  </a>
+
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a class="active" href="#">Juegos</a>
+    <a href="retos.html">Retos</a>
+    <a href="cuenta.html">Cuenta</a>
+    <a href="procesos.html">Estadísticas</a>
+    <a class="btn-outline" href="ingresar.html">Ingresar</a>
+  </nav>
+</header>
+
+<section class="main-container">
+  <div class="section-header">
+    <h1>Juegos Disponibles</h1>
+    <p>Aprende las Normas APA jugando y sube de nivel mientras avanzas.</p>
+  </div>
+
+  <div class="dashboard-grid">
+    <div class="card-base">
+      <div class="game-icon"><i class="fa-solid fa-quote-left"></i></div>
+      <h3>Citas APA</h3>
+      <p>Identifica citas correctas e incorrectas según APA 7.</p>
+      <a href="./citas.html" style="margin-top: auto;"><button>Jugar</button></a>
+    </div>
+
+    <div class="card-base">
+      <div class="game-icon"><i class="fa-solid fa-bookmark"></i></div>
+      <h3>Referencias APA</h3>
+      <p>Aprende a reconocer referencias bien estructuradas.</p>
+      <a href="./referencias.html" style="margin-top: auto;"><button>Jugar</button></a>
+    </div>
+
+    <div class="card-base">
+      <div class="game-icon"><i class="fa-solid fa-file-lines"></i></div>
+      <h3>Formato APA</h3>
+      <p>Domina márgenes, interlineado y estructura del documento.</p>
+      <a href="./formato.html" style="margin-top: auto;"><button>Jugar</button></a>
+    </div>
+
+    <div class="card-base locked" id="finalChallenge">
+      <div class="game-icon"><i class="fa-solid fa-lock"></i></div>
+      <h3>Desafío Final</h3>
+      <p>Completa los juegos anteriores para desbloquear.</p>
+      <button disabled>Bloqueado</button>
+    </div>
+  </div>
+</section>
+
+<footer></footer>
+
+<!-- JS GLOBAL -->
+<script src="/js/theme.js" defer></script>
+
+<!-- JS PROPIO -->
+<script src="/js/juegos.js" defer></script>
+<script src="/js/footer.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desafío Final - APAticGames</title>
+
+  <link rel="icon" href="/images/image-Photoroom.png" type="image/png">
+
+  <link rel="stylesheet" href="/css/DesafioFinal.css">
+  <link rel="stylesheet" href="/css/theme.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .game-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+  </style>
+</head>
+
+<body>
+<script>if(localStorage.getItem('darkMode')==='enabled')document.body.classList.add('dark')</script>
+
+<header>
+  <a href="Inicio.html" class="logo">
+    <img src="/images/image-Photoroom.png" alt="APAticGames Logo">
+  </a>
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a class="active" href="juegos.html">Juegos</a>
+    <a href="retos.html">Retos</a>
+    <a href="cuenta.html">Cuenta</a>
+    <a href="procesos.html">Estadísticas</a>
+    <a class="btn-outline" href="ingresar.html">Ingresar</a>
+  </nav>
+</header>
+
+<main class="game-container">
+
+  <!-- SECCIÓN BLOQUEADA (Si no cumple requisitos) -->
+  <section id="locked" class="card hidden">
+    <h1><i class="fa-solid fa-lock"></i> Acceso Restringido</h1>
+    <p>
+      Para acceder al <strong>Examen Final</strong> debes demostrar tu dominio en los módulos anteriores.
+    </p>
+    <div class="requirements">
+      <p>Requisitos faltantes:</p>
+      <ul>
+        <li id="reqCitas">📘 Completar Citas APA (Nivel 5)</li>
+        <li id="reqRef">📑 Completar Referencias APA (Nivel 5)</li>
+        <li id="reqFormato">📄 Completar Formato APA (Nivel 5)</li>
+      </ul>
+    </div>
+    <a href="juegos.html" class="btn-secondary">Volver a Juegos</a>
+  </section>
+
+  <!-- INTRODUCCIÓN -->
+  <section id="intro" class="card hidden">
+    <span class="level">Evaluación Integral</span>
+    <h1><i class="fa-solid fa-graduation-cap"></i> Desafío Final</h1>
+    <p>
+      Has llegado a la prueba definitiva. Este examen combina preguntas de 
+      <strong>Citas, Referencias y Formato</strong> para certificar tu conocimiento.
+    </p>
+    
+    <div class="theory-box">
+      <h3><i class="fa-solid fa-scroll"></i> Reglas del Examen</h3>
+      <ul>
+        <li><strong>15 Preguntas</strong> aleatorias de todos los temas.</li>
+        <li>Sin límite de tiempo.</li>
+        <li>Necesitas un <strong>80% de aciertos</strong> para aprobar.</li>
+      </ul>
+    </div>
+
+    <button class="btn-primary" onclick="startGame()">Comenzar Examen</button>
+  </section>
+
+  <!-- CUESTIONARIO -->
+  <section id="quiz" class="card hidden">
+    <div class="quiz-header">
+      <span id="categoryBadge" class="badge">Tema</span>
+      <span id="progress">1/15</span>
+    </div>
+    
+    <h2 id="questionText">Pregunta...</h2>
+
+    <div id="options" class="options-grid"></div>
+    
+    <div id="feedback" class="feedback hidden"></div>
+  </section>
+
+  <!-- RESULTADOS -->
+  <section id="result" class="card hidden">
+    <h2 id="resultTitle">Resultados</h2>
+    <div class="score-circle">
+      <span id="finalScore">0</span>
+      <small>%</small>
+    </div>
+    
+    <p id="resultMessage"></p>
+    <div id="stars" class="stars-container"></div>
+
+    <div class="actions">
+      <button onclick="location.reload()" class="btn-secondary">Intentar de nuevo</button>
+      <a href="Inicio.html" class="btn-primary">Volver al Inicio</a>
+    </div>
+  </section>
+
+</main>
+
+<footer></footer>
+
+<script src="/js/theme.js"></script>
+<script src="/js/DesafioFinal.js"></script>
+<script src="/js/footer.js" defer></script>
+</body>
+</html>

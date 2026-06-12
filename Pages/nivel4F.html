@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APAticGames</title>
+
+  <link rel="icon" href="/images/image-Photoroom.png" type="image/png">
+
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/nivel4F.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<script>if(localStorage.getItem('darkMode')==='enabled')document.body.classList.add('dark')</script>
+
+<header>
+  <a href="Inicio.html" class="logo">
+    <img src="/images/image-Photoroom.png" alt="APAticGames Logo">
+  </a>
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a class="active" href="formato.html">Juegos</a>
+    <a href="retos.html">Retos</a>
+    <a href="cuenta.html">Cuenta</a>
+    <a href="procesos.html">Estadísticas</a>
+    <a class="btn-outline" href="ingresar.html">Ingresar</a>
+  </nav>
+</header>
+
+<main class="game-container">
+
+<!-- INTRO -->
+<section id="intro" class="card">
+  <span class="level">Nivel 4</span>
+  <h1>Jerarquía de Títulos</h1>
+  <p class="intro-desc">Los títulos y subtítulos organizan tu trabajo en una estructura lógica. Aprende a identificar cada uno de los 5 niveles de encabezados que define APA 7.</p>
+  <div class="theory-box">
+      <h3><i class="fa-solid fa-graduation-cap"></i> ¿Qué aprenderás?</h3>
+      <ul>
+          <li><i class="fa-solid fa-check"></i> Diferenciar los formatos de los Niveles 1 al 5.</li>
+          <li><i class="fa-solid fa-check"></i> Dominar el uso de negrita, cursiva y sangría.</li>
+          <li><i class="fa-solid fa-check"></i> Entender cómo crean una estructura clara.</li>
+      </ul>
+  </div>
+  <div class="intro-mission">
+      <i class="fa-solid fa-layer-group"></i>
+      <div><strong>Tu Misión:</strong> Observa el formato del título y selecciona el Nivel APA al que corresponde.</div>
+  </div>
+  <button class="btn-primary" onclick="startGame()">Comenzar Desafío</button>
+</section>
+
+<!-- JUEGO -->
+<section id="game" class="card hidden">
+  <p id="progress"></p>
+
+  <p class="instruction">
+      <i class="fa-solid fa-file-alt"></i> Observa el título y selecciona el nivel APA correcto.
+  </p>
+
+  <div class="doc-preview">
+    <p id="titleText" class="doc-title"></p>
+  </div>
+
+  <div class="game-options">
+    <button class="btn-outline" onclick="selectLevel(this, 1)">Nivel 1</button>
+    <button class="btn-outline" onclick="selectLevel(this, 2)">Nivel 2</button>
+    <button class="btn-outline" onclick="selectLevel(this, 3)">Nivel 3</button>
+    <button class="btn-outline" onclick="selectLevel(this, 4)">Nivel 4</button>
+    <button class="btn-outline" onclick="selectLevel(this, 5)">Nivel 5</button>
+  </div>
+
+  <div id="feedback" class="feedback hidden"></div>
+
+  <button id="nextBtn" class="btn-primary hidden" onclick="nextChallenge()">Siguiente desafío</button>
+</section>
+
+<!-- RESULTADO -->
+<section id="end" class="card hidden">
+    <h2><i class="fa-solid fa-trophy"></i> Resultado del nivel</h2>
+  <p id="finalScore"></p>
+  <a href="formato.html" class="btn-primary">Volver a Formato APA</a>
+</section>
+
+</main>
+
+<footer></footer>
+
+<script src="/js/theme.js" defer></script>
+<script src="/js/nivel4F.js" defer></script>
+<script src="/js/footer.js" defer></script>
+</body>
+</html>

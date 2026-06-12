@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APAticGames</title>
+
+  <link rel="icon" href="/images/image-Photoroom.png" type="image/png">
+
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/nivel2F.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<script>if(localStorage.getItem('darkMode')==='enabled')document.body.classList.add('dark')</script>
+
+<header>
+  <a href="Inicio.html" class="logo">
+    <img src="/images/image-Photoroom.png" alt="APAticGames Logo">
+  </a>
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a class="active" href="formato.html">Juegos</a>
+    <a href="retos.html">Retos</a>
+    <a href="cuenta.html">Cuenta</a>
+    <a href="procesos.html">Estadísticas</a>
+    <a class="btn-outline" href="ingresar.html">Ingresar</a>
+  </nav>
+</header>
+
+<main class="game-container">
+
+  <!-- INTRO -->
+  <section id="intro" class="card">
+    <span class="level">Nivel 2</span>
+    <h1>Alineación y Espaciado</h1>
+    <div class="intro-compact">
+        <p class="intro-description">
+            La legibilidad es clave en APA. Aprende a reconocer visualmente si un texto cumple con las reglas de <strong>interlineado doble</strong> y <strong>alineación a la izquierda</strong>.
+        </p>
+        <ul>
+            <li>Dominarás la alineación a la izquierda (sin justificar).</li>
+            <li>Reconocerás el interlineado doble (2.0).</li>
+            <li>Asegurarás la consistencia visual de tus párrafos.</li>
+        </ul>
+        <div class="mission">
+            <i class="fa-solid fa-keyboard"></i> <strong>Tu Misión:</strong> Observa el texto, detecta el error y escribe la corrección necesaria (ej: "doble", "izquierda").
+        </div>
+    </div>
+    <button class="btn-primary" onclick="startGame()">Comenzar</button>
+  </section>
+
+  <!-- JUEGO -->
+  <section id="game" class="card hidden">
+    <p id="progress"></p>
+
+    <p class="instruction">
+      <i class="fa-solid fa-eye"></i> Observa el formato del texto y escribe la corrección APA necesaria.
+    </p>
+
+    <div id="doc" class="doc-box"></div>
+
+    <input
+      type="text"
+      id="answer"
+      placeholder="Ejemplo: alinear a la izquierda, interlineado doble"
+    >
+
+    <!-- PISTA -->
+    <div class="hint-area">
+      <button class="btn-hint" onclick="showHint()"><i class="fa-solid fa-lightbulb"></i> Ver Pista</button>
+      <p id="hintText" class="hidden"></p>
+    </div>
+
+    <div id="feedback" class="feedback hidden"></div>
+
+    <button class="btn-primary" onclick="checkAnswer()">Verificar</button>
+    <button id="nextBtn" class="btn-primary hidden" onclick="nextChallenge()">Siguiente</button>
+  </section>
+
+  <!-- RESULTADO -->
+  <section id="end" class="card hidden">
+    <h2><i class="fa-solid fa-trophy"></i> Resultado del nivel</h2>
+    <p id="finalScore"></p>
+    <a href="formato.html" class="btn-play">Volver a Formato APA</a>
+  </section>
+
+</main>
+
+<footer></footer>
+
+<script src="/js/theme.js" defer></script>
+<script src="/js/nivel2F.js" defer></script>
+<script src="/js/footer.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APAticGames</title>
+
+  <link rel="icon" href="/images/image-Photoroom.png" type="image/png">
+
+  <link rel="stylesheet" href="/css/formato.css">
+  <link rel="stylesheet" href="/css/theme.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .level-card.locked button {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+<script>if(localStorage.getItem('darkMode')==='enabled')document.body.classList.add('dark')</script>
+
+<header>
+  <a href="Inicio.html" class="logo">
+    <img src="/images/image-Photoroom.png" alt="APAticGames Logo">
+  </a>
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a class="active" href="juegos.html">Juegos</a>
+    <a href="retos.html">Retos</a>
+    <a href="cuenta.html">Cuenta</a>
+    <a href="procesos.html">Estadísticas</a>
+    <a class="btn-outline" href="ingresar.html">Ingresar</a>
+  </nav> 
+</header>
+
+<main class="layout">
+
+  <aside class="sidebar">
+    <h3>Módulos APA</h3>
+    <ul>
+      <li><a href="citas.html"> Citas APA</a></li>
+      <li><a href="referencias.html"> Referencias APA</a></li>
+      <li class="active"> Formato APA</li>
+      <li><a href="progreso.html"> Mi progreso</a></li>
+
+    </ul>
+  </aside>
+
+  <section class="content">
+    <h1>Formato APA 7</h1>
+    <p class="subtitle">
+      Aprende a aplicar correctamente el formato APA en documentos académicos.
+    </p>
+
+    <div class="levels-grid">
+
+      <div class="level-card unlocked card-base" data-level="1">
+        <span class="level">Nivel 1</span>
+        <h3>Errores de formato</h3>
+        <p>Identifica fallos comunes.</p>
+        <div class="stars"></div>
+        <button onclick="startLevel(1)">Jugar</button>
+      </div>
+
+      <div class="level-card locked card-base" data-level="2">
+        <span class="level">Nivel 2</span>
+        <h3>Interlineado y alineación</h3>
+        <p>Doble espacio y texto alineado.</p>
+        <div class="stars"></div>
+        <button onclick="startLevel(2)">Jugar</button>
+      </div>
+
+      <div class="level-card locked card-base" data-level="3">
+        <span class="level">Nivel 3</span>
+        <h3>Encabezado y numeración</h3>
+        <p>Formato de páginas.</p>
+        <div class="stars"></div>
+        <button onclick="startLevel(3)">Jugar</button>
+      </div>
+
+      <div class="level-card locked card-base" data-level="4">
+        <span class="level">Nivel 4</span>
+        <h3>Títulos y subtítulos</h3>
+        <p>Niveles de encabezado APA.</p>
+        <div class="stars"></div>
+        <button onclick="startLevel(4)">Jugar</button>
+      </div>
+
+      <div class="level-card locked card-base" data-level="5">
+        <span class="level">Nivel 5</span>
+        <h3>Formato final del documento</h3>
+        <p>Revisión completa.</p>
+        <div class="stars"></div>
+        <button onclick="startLevel(5)">Jugar</button>
+      </div>
+
+    </div>
+  </section>
+
+  <aside class="progress">
+    <h3>Tu progreso</h3>
+    <p><strong>Nivel actual:</strong> 1</p>
+
+    <div class="bar">
+      <div class="bar-fill" style="width:20%"></div>
+    </div>
+
+    <p class="stars"></p>
+  </aside>
+
+</main>
+
+<footer></footer>
+
+<script src="/js/formato.js" defer></script>
+<script src="/js/theme.js" defer></script>
+<script src="/js/footer.js" defer></script>
+</body>
+</html>

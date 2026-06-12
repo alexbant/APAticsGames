@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APAticGames</title>
+
+  <link rel="icon" href="/images/image-Photoroom.png" type="image/png">
+
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/nivel2.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<script>if(localStorage.getItem('darkMode')==='enabled')document.body.classList.add('dark')</script>
+
+<header>
+  <a href="Inicio.html" class="logo">
+    <img src="/images/image-Photoroom.png" alt="APAticGames Logo">
+  </a>
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a class="active" href="citas.html">Juegos</a>
+    <a href="retos.html">Retos</a>
+    <a href="cuenta.html">Cuenta</a>
+    <a href="procesos.html">Estadísticas</a>
+    <a class="btn-outline" href="ingresar.html">Ingresar</a>
+  </nav>
+</header>
+
+<main class="game-container">
+
+  <!-- INTRO -->
+  <section id="intro" class="card">
+    <span class="level">Nivel 2</span>
+    <h1>Partes de una Cita</h1>
+    <p class="intro-desc">Toda cita APA se compone de piezas clave. Aprende a identificar las tres partes fundamentales que la componen.</p>
+    <div class="theory-box">
+        <h3><i class="fa-solid fa-graduation-cap"></i> ¿Qué aprenderás?</h3>
+        <ul>
+            <li><i class="fa-solid fa-check"></i> Identificar al Autor (Quién lo dijo).</li>
+            <li><i class="fa-solid fa-check"></i> Reconocer el Año de publicación (Cuándo).</li>
+            <li><i class="fa-solid fa-check"></i> Distinguir el Texto o idea citada (Qué).</li>
+        </ul>
+    </div>
+    <div class="intro-mission">
+        <i class="fa-solid fa-puzzle-piece"></i>
+        <div><strong>Tu Misión:</strong> Arrastra cada fragmento de la cita a su categoría correcta (Autor, Año o Texto).</div>
+    </div>
+    <button class="btn-primary" onclick="startGame()">Comenzar Desafío</button>
+  </section>
+
+  <!-- JUEGO -->
+  <section id="game" class="card hidden">
+    <p id="progress"></p>
+
+    <p class="sentence" id="sentence"></p>
+
+    <div id="feedback" class="feedback hidden"></div>
+
+    <div class="dropzones">
+      <div class="dropzone" data-type="autor"></div>
+      <div class="dropzone" data-type="año"></div>
+      <div class="dropzone" data-type="texto"></div>
+    </div>
+
+    <div class="pieces" id="pieces"></div>
+
+    <button class="btn-primary" onclick="checkAnswer()">Verificar</button>
+
+    <button id="nextBtn" class="btn-primary hidden" onclick="nextChallenge()">Continuar</button>
+  </section>
+
+  <!-- RESULTADO -->
+  <section id="result" class="card hidden">
+    <h2><i class="fa-solid fa-trophy"></i> Resultado del nivel</h2>
+    <p id="scoreText"></p>
+    <p id="stars"></p>
+    <a href="citas.html" class="btn-play">Volver a Citas APA</a>
+  </section>
+
+</main>
+
+<footer></footer>
+
+<script src="/js/theme.js" defer></script>
+<script src="/js/nivel2.js" defer></script>
+<script src="/js/footer.js" defer></script>
+</body>
+</html>

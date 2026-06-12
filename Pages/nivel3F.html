@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APAticGames</title>
+
+  <link rel="icon" href="/images/image-Photoroom.png" type="image/png">
+
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/nivel3F.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<script>if(localStorage.getItem('darkMode')==='enabled')document.body.classList.add('dark')</script>
+
+<header>
+  <!-- cambiado: logo de texto por imagen -->
+  <a href="Inicio.html" class="logo">
+    <img src="/images/image-Photoroom.png" alt="APAticGames Logo">
+  </a>
+
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a class="active" href="formato.html">Juegos</a>
+    <a href="retos.html">Retos</a>
+    <a href="cuenta.html">Cuenta</a>
+    <a href="procesos.html">Estadísticas</a>
+    <a class="btn-outline" href="ingresar.html">Ingresar</a>
+  </nav>
+</header>
+
+<main class="game-container">
+
+<!-- INTRO -->
+<section id="intro" class="card">
+  <span class="level">Nivel 3</span>
+  <h1>Encabezado y Paginación</h1>
+  <div class="intro-compact">
+      <p class="intro-description">
+          El encabezado y la numeración son la carta de presentación de cada página. Aprende a evaluar si un documento cumple con las normas APA 7 en esta área.
+      </p>
+      <ul>
+          <li>Confirmarás la ubicación correcta del número de página.</li>
+          <li>Verificarás el formato del título corto (si aplica).</li>
+          <li>Aplicarás las reglas de encabezado de APA 7.</li>
+      </ul>
+      <div class="mission">
+          <i class="fa-solid fa-check-to-slot"></i> <strong>Tu Misión:</strong> Evalúa si el encabezado y la numeración que se muestran son correctos.
+      </div>
+  </div>
+  <button class="btn-primary" onclick="startGame()">Comenzar</button>
+</section>
+
+<!-- JUEGO -->
+<section id="game" class="card hidden">
+  <p id="progress"></p>
+
+  <p class="instruction">
+      <i class="fa-solid fa-file-alt"></i> Observa el documento y responde según APA 7.
+  </p>
+
+  <div class="doc-preview">
+    <div class="doc-header">
+      <span id="headerText"></span>
+      <span id="pageNumber"></span>
+    </div>
+
+    <div class="doc-body">
+      <p>
+        El aprendizaje académico requiere el uso adecuado
+        de normas de presentación para garantizar claridad
+        y uniformidad en los documentos científicos.
+      </p>
+    </div>
+  </div>
+
+  <div class="questions">
+    <label>¿El encabezado es correcto?</label>
+    <select id="qHeader">
+      <option value="">Selecciona</option>
+      <option value="si">Sí</option>
+      <option value="no">No</option>
+    </select>
+
+    <label>¿La numeración es correcta?</label>
+    <select id="qPage">
+      <option value="">Selecciona</option>
+      <option value="si">Sí</option>
+      <option value="no">No</option>
+    </select>
+
+    <label>¿Cumple APA 7?</label>
+    <select id="qAPA">
+      <option value="">Selecciona</option>
+      <option value="si">Sí</option>
+      <option value="no">No</option>
+    </select>
+  </div>
+
+  <div id="feedback" class="feedback hidden"></div>
+
+  <button class="btn-primary" onclick="checkAnswer()">Verificar</button>
+  <button id="nextBtn" class="btn-primary hidden" onclick="nextChallenge()">Siguiente desafío</button>
+</section>
+
+<!-- RESULTADO -->
+<section id="end" class="card hidden">
+    <h2><i class="fa-solid fa-trophy"></i> Resultado del nivel</h2>
+  <p id="finalScore"></p>
+
+  <a href="formato.html" class="btn-primary">Volver a Formato APA</a>
+</section>
+
+</main>
+
+<footer></footer>
+
+<script src="/js/theme.js" defer></script>
+<script src="/js/nivel3F.js" defer></script>
+<script src="/js/footer.js" defer></script>
+</body>
+</html>

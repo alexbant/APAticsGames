@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APAticGames</title>
+
+  <link rel="icon" href="/images/image-Photoroom.png" type="image/png">
+
+  <link rel="stylesheet" href="/css/ravanzado.css">
+  <link rel="stylesheet" href="/css/theme.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+<script>if(localStorage.getItem('darkMode')==='enabled')document.body.classList.add('dark')</script>
+
+<header class="header-retos">
+  <a href="Inicio.html" class="logo">
+    <img src="/images/image-Photoroom.png" alt="APAticGames">
+  </a>
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a href="juegos.html">Juegos</a>
+    <a class="active" href="retos.html">Retos</a>
+    <a href="cuenta.html">Cuenta</a>
+    <a href="procesos.html">Estadísticas</a>
+    <a class="btn-outline" href="ingresar.html">Ingresar</a>
+  </nav>
+</header>
+
+<main class="game-container">
+
+  <!-- BLOQUEADO -->
+  <section id="locked" class="card hidden">
+    <h1><i class="fa-solid fa-lock"></i> Reto Avanzado</h1>
+    <p>
+      Completa todos los Juegos (Citas, Referencias, Formato) y el módulo de Jerarquía
+      para desbloquear este desafío.
+    </p>
+    <a href="retos.html" class="btn-secondary">⬅ Volver a Retos</a>
+  </section>
+
+  <!-- INTRO -->
+  <section id="intro" class="card hidden">
+    <span class="level">Desafío final</span>
+    <h1><i class="fa-solid fa-fire"></i> Reto Avanzado APA</h1>
+    <p>
+      Este reto combina citas y referencias. Solo los que dominan
+      las normas APA logran completarlo.
+    </p>
+    <button class="btn-primary" onclick="startGame()">Comenzar reto</button>
+  </section>
+
+  <!-- JUEGO -->
+  <section id="quiz" class="card hidden">
+    <p id="progress"></p>
+    <p id="texto"></p>
+
+    <div class="options">
+      <button class="option" onclick="checkAnswer(true)">✔ Correcto</button>
+      <button class="option" onclick="checkAnswer(false)">❌ Incorrecto</button>
+    </div>
+  </section>
+
+  <!-- RESULTADO -->
+  <section id="result" class="card hidden">
+    <h2><i class="fa-solid fa-trophy"></i> Reto Avanzado superado</h2>
+    <p id="scoreText"></p>
+    <p id="stars"></p>
+  </section>
+
+</main>
+
+<footer></footer>
+
+<script src="/js/theme.js"></script>
+<script src="/js/ravanzado.js"></script>
+<script src="/js/footer.js" defer></script>
+</body>
+</html>

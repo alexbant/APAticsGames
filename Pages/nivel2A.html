@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APAticGames</title>
+
+  <link rel="icon" href="/images/image-Photoroom.png" type="image/png">
+
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/nivel2A.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<script>if(localStorage.getItem('darkMode')==='enabled')document.body.classList.add('dark')</script>
+
+<header>
+  <a href="Inicio.html" class="logo">
+    <img src="/images/image-Photoroom.png" alt="APAticGames Logo">
+  </a>
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a class="active" href="referencias.html">Juegos</a>
+    <a href="retos.html">Retos</a>
+    <a href="cuenta.html">Cuenta</a>
+    <a href="procesos.html">Estadísticas</a>
+    <a class="btn-outline" href="ingresar.html">Ingresar</a>
+  </nav>
+</header>
+
+<main class="game-container">
+
+  <!-- INTRO / MINI CLASE -->
+  <section id="intro" class="card">
+    <span class="level">Nivel 2</span>
+    <h1>Estructura de Referencia</h1>
+    <p class="intro-desc">Para construir una referencia, necesitas responder a cuatro preguntas clave: ¿Quién? ¿Cuándo? ¿Qué? y ¿Dónde?.</p>
+    <div class="theory-box">
+        <h3><i class="fa-solid fa-graduation-cap"></i> ¿Qué aprenderás?</h3>
+        <ul>
+            <li><i class="fa-solid fa-check"></i> Identificar Autor y Fecha.</li>
+            <li><i class="fa-solid fa-check"></i> Reconocer el Título de la obra.</li>
+            <li><i class="fa-solid fa-check"></i> Localizar la Fuente de recuperación.</li>
+        </ul>
+    </div>
+    <div class="intro-mission">
+        <i class="fa-solid fa-cubes"></i>
+        <div><strong>Tu Misión:</strong> Arrastra y clasifica cada fragmento en la categoría que le corresponde.</div>
+    </div>
+    <button class="btn-primary" onclick="startGame()">Comenzar Desafío</button>
+  </section>
+
+  <!-- JUEGO -->
+  <section id="game" class="card hidden">
+
+    <p id="progress"></p>
+
+    <!-- INSTRUCCIÓN DEL DESAFÍO -->
+    <div class="instruction">
+      👉 Arrastra cada fragmento de la referencia hacia la categoría correcta.
+    </div>
+
+    <div class="reference-parts" id="parts"></div>
+
+    <div class="drop-zones">
+      <div class="zone" data-type="Autor">Autor</div>
+      <div class="zone" data-type="Año">Año</div>
+      <div class="zone" data-type="Título">Título</div>
+      <div class="zone" data-type="Fuente">Fuente</div>
+    </div>
+
+    <div id="feedback" class="feedback hidden"></div>
+
+    <button class="btn-primary hidden" id="checkBtn" onclick="checkAnswer()">Verificar</button>
+    <button class="btn-primary hidden" id="nextBtn" onclick="nextChallenge()">Siguiente desafío</button>
+  </section>
+
+  <!-- RESULTADO -->
+  <section id="result" class="card hidden">
+    <h2><i class="fa-solid fa-trophy"></i> Nivel completado</h2>
+    <p id="scoreText"></p>
+    <p id="stars"></p>
+    <a href="referencias.html" class="btn-primary">Volver a Referencias</a>
+  </section>
+
+</main>
+
+<footer></footer>
+
+<script src="/js/theme.js" defer></script>
+<script src="/js/nivel2A.js" defer></script>
+<script src="/js/footer.js" defer></script>
+</body>
+</html>

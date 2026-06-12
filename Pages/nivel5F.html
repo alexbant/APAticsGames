@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APAticGames</title>
+
+  <link rel="icon" href="/images/image-Photoroom.png" type="image/png">
+
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/nivel5F.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<script>if(localStorage.getItem('darkMode')==='enabled')document.body.classList.add('dark')</script>
+
+<header>
+  <a href="Inicio.html" class="logo">
+    <img src="/images/image-Photoroom.png" alt="APAticGames Logo">
+  </a>
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a class="active" href="formato.html">Juegos</a>
+    <a href="retos.html">Retos</a>
+    <a href="cuenta.html">Cuenta</a>
+    <a href="procesos.html">Estadísticas</a>
+    <a class="btn-outline" href="ingresar.html">Ingresar</a>
+  </nav>
+</header>
+
+<main class="game-container">
+
+<!-- INTRO -->
+<section id="intro" class="card">
+  <span class="level">Nivel 5</span>
+  <h1>Revisión Final del Documento</h1>
+  <div class="intro-compact">
+      <p class="intro-description">
+          Es hora de la auditoría final. En este nivel, revisarás un documento y decidirás si cumple con las reglas generales de formato APA 7.
+      </p>
+      <ul>
+          <li>Verificarás los márgenes, la fuente y el espaciado.</li>
+          <li>Asegurarás la consistencia en todo el documento.</li>
+          <li>Realizarás una auditoría de formato general.</li>
+      </ul>
+      <div class="mission">
+          <i class="fa-solid fa-clipboard-check"></i> <strong>Tu Misión:</strong> Lee la afirmación sobre el formato del documento y decide si es correcta o incorrecta.
+      </div>
+  </div>
+  <button class="btn-primary" onclick="startGame()">Comenzar</button>
+</section>
+
+<!-- JUEGO -->
+<section id="game" class="card hidden">
+  <p id="progress"></p>
+
+  <p class="instruction" id="reviewInstruction"></p>
+
+  <div class="doc-preview" id="docPreview"></div>
+
+  <div class="options">
+    <button class="btn-ok" onclick="checkAnswer(this, true)">✔ Correcto</button>
+    <button class="btn-error" onclick="checkAnswer(this, false)">✖ Incorrecto</button>
+  </div>
+
+  <div id="feedback" class="feedback hidden"></div>
+
+  <button id="nextBtn" class="btn-primary hidden" onclick="nextChallenge()">Siguiente desafío</button>
+</section>
+
+<!-- RESULTADO -->
+<section id="end" class="card hidden">
+    <h2><i class="fa-solid fa-trophy"></i> Resultado del nivel</h2>
+  <p id="finalScore"></p>
+  <a href="formato.html" class="btn-primary">Volver a Formato APA</a>
+</section>
+
+</main>
+
+<footer></footer>
+
+<script src="/js/theme.js" defer></script>
+<script src="/js/nivel5F.js" defer></script>
+<script src="/js/footer.js" defer></script>
+</body>
+</html>

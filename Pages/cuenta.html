@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APAticGames</title>
+
+  <link rel="icon" href="/images/image-Photoroom.png" type="image/png">
+
+
+  <link rel="stylesheet" href="/css/cuenta.css">
+  <link rel="stylesheet" href="/css/theme.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<script>if(localStorage.getItem('darkMode')==='enabled')document.body.classList.add('dark')</script>
+
+<header>
+  <a href="Inicio.html" class="logo">
+    <img src="/images/image-Photoroom.png" alt="APAticGames Logo">
+    <span class="logo-title"></span>
+  </a>
+
+  <nav>
+    <a href="Inicio.html">Inicio</a>
+    <a href="juegos.html">Juegos</a>
+    <a href="retos.html">Retos</a>
+    <a class="active" href="#">Cuenta</a>
+    <a href="procesos.html">Estadísticas</a>
+    <a class="btn-outline" href="#">Salir</a>
+  </nav>
+</header>
+
+<section class="main-container">
+
+  <div class="account-card fancy-card">
+
+    <div class="profile-area">
+
+      <!-- PERFIL -->
+      <div class="profile">
+        <div class="avatar avatar-glow" id="avatarContainer" style="cursor: pointer; position: relative; overflow: hidden;">
+          <i class="fa-solid fa-user" id="defaultAvatarIcon"></i>
+          <img id="avatarImage" src="" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover; display: none;">
+        </div>
+        <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+        <p style="font-size: 0.85rem; color: #64748b; margin-top: 8px; cursor: pointer;" onclick="document.getElementById('avatarInput').click()"><i class="fa-solid fa-camera"></i> Cambiar foto</p>
+        
+        <h2>Usuario APAticGames</h2>
+        <span class="level">Nivel 3 · Novato</span>
+        <span class="status online">● Cuenta activa</span>
+
+        <!-- Nueva sección lateral -->
+        <div class="side-extra soft-box">
+          <p><strong>Último ingreso:</strong> Hoy</p>
+          <p><strong>Horas jugadas:</strong> 14h</p>
+          <p><strong>Rango:</strong> ...</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="content-area">
+
+      <!-- PROGRESO -->
+      <div class="section-title">
+        <span><i class="fa-solid fa-book-open"></i> Resumen del progreso</span>
+      </div>
+
+      <div class="progress-box soft-box">
+        <p>Progreso al siguiente nivel</p>
+        <div class="progress-bar">
+          <div class="progress-fill" data-progress="75"></div>
+        </div>
+        <span class="progress-text">75%</span>
+      </div>
+
+      <!-- ESTADÍSTICAS -->
+      <div class="section-title">
+        <span><i class="fa-solid fa-chart-pie"></i> Estadísticas</span>
+      </div>
+
+      <div class="stats">
+        <div class="stat soft-box">
+          <h3>1200</h3><p>Puntos</p>
+        </div>
+        <div class="stat soft-box">
+          <h3>8</h3><p>Juegos completados</p>
+        </div>
+        <div class="stat soft-box">
+          <h3>12</h3><p>Logros</p>
+        </div>
+      </div>
+
+      <!-- LOGROS -->
+      <div class="section-title">
+        <span><i class="fa-solid fa-trophy"></i> Logros y colecciones</span>
+      </div>
+
+      <div class="achievements soft-box">
+        <div class="achievement-list">
+          <span><i class="fa-solid fa-medal"></i> Primer Juego</span>
+          <span><i class="fa-solid fa-fire"></i> 5 juegos seguidos</span>
+          <span><i class="fa-solid fa-star"></i> Nivel Aprendiz</span>
+        </div>
+      </div>
+
+      <!-- CONFIG -->
+      <div class="section-title">
+        <span><i class="fa-solid fa-gear"></i> Configuración</span>
+      </div>
+
+      <div class="settings soft-box">
+        <label><input type="checkbox" id="soundToggle" checked> Sonidos</label>
+        <label><input type="checkbox" id="notifToggle" checked> Notificaciones</label>
+        <label><input type="checkbox" id="darkModeToggle"> Modo oscuro</label>
+      </div>
+
+      <!-- ACCIONES -->
+      <div class="actions">
+        <button id="editBtn"><i class="fa-solid fa-pen-to-square"></i> Editar perfil</button>
+        <button id="logoutBtn" class="secondary"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+        <button id="resetProgressBtn" class="warning" style="background-color: #f59e0b; color: white;"><i class="fa-solid fa-rotate-left"></i> Reiniciar Progreso</button>
+        <button id="deleteAccountBtn" class="danger"><i class="fa-solid fa-user-xmark"></i> Solicitar eliminación de cuenta</button>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<footer></footer>
+
+<script src="/js/theme.js"></script>
+<script type="module" src="/js/cuenta.js"></script>
+<script src="/js/footer.js" defer></script>
+</body>
+</html>
